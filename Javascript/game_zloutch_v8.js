@@ -1,22 +1,22 @@
 // @ts-check
 
-var throwCombination = [5, 5, 2, 2, 5];
+var throwCombination = [];
 var numberOfDice = 5;
 var throwScore = 0;
 var roundScore = 0;
-
+var minToPay = 0;
 // --- Fonction dice ---
 
-// var throwDice = function() {
-//   for (var i = 0; i < numberOfDice; i++) {
-//     throwCombination.push(Math.floor(Math.random() * 6 + 1));
-//   }
-//   console.log(throwCombination);
-// };
+var throwDice = function() {
+  for (var i = 0; i < numberOfDice; i++) {
+    throwCombination.push(Math.floor(Math.random() * 6 + 1));
+  }
+  console.log(throwCombination);
+};
 
-// throwDice();
+throwDice();
 
-// --- Répartitin des points ainsi que de leur fréquences---
+// --- Répartition des points ainsi que de leur fréquences---
 
 var combinaison = [];
 var countRecurrence = {};
@@ -38,7 +38,7 @@ console.log(countRecurrence);
 
 /* ---assigniation des points--- */
 
-var brelant = function(x) {
+var brelan = function(x) {
   return x * 100;
 };
 
@@ -63,21 +63,21 @@ var countPoint = function() {
       var frequence = countRecurrence[dieNum[i]];
       if (frequence === 5) {
         if (number === 1) {
-          throwScore += brelant(10) * 4;
+          throwScore += brelan(10) * 4;
         } else {
-          throwScore += brelant(number) * 4;
+          throwScore += brelan(number) * 4;
         }
       } else if (frequence === 4) {
         if (number === 1) {
-          throwScore += brelant(10) * 2;
+          throwScore += brelan(10) * 2;
         } else {
-          throwScore += brelant(number) * 2;
+          throwScore += brelan(number) * 2;
         }
       } else if (frequence === 3) {
         if (number === 1) {
-          throwScore += brelant(10);
+          throwScore += brelan(10);
         } else {
-          throwScore += brelant(number);
+          throwScore += brelan(number);
         }
       } else if (frequence === 2) {
         if (
