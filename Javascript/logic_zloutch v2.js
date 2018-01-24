@@ -1,23 +1,29 @@
 // @ts-check
 
-var throwCombination = [];
 var numberOfDice = 5;
-var throwScore = 0;
-var roundScore = 0;
 var minToPay = 500;
 
+function check() {
+  document.getElementById("die1").checked = true;
+}
+
+function uncheck() {
+  document.getElementById("die1").checked = false;
+}
 // --- Constructor to build a player ---
 
 var Player = function(name, pictureId) {
   this.name = name;
   this.pic = pictureId;
-  this.firstThrow = 0; // egal au finalScore du 1st round.
-  this.throwScore = 0;
-  this.throwCombination = [];
-  this.finalScore = 0; // cannot end by 50.
-  this.tableScores = [];
+  this.firstThrow = 0; // equal to finalScore at the end of round 0.
+  this.throwScore = 0; // sum of the scores made during a round by the Player after throwing dice.
+  this.throwCombination = []; // dice combinations during Player's round.
+  this.finalScore = 0; // final score of the round: cannot end with 50. this.finalScore += this.throwScore.
+  this.tableScores = []; // table of Player's scores.
   this.penalty = 0; // max = 3; increment when finalScore = 0. when = 3 --> this.tableScores.pop()1
   this.round = 0; // count the number of turn, will be used for firstThrow.
+  this.throwCombinationSummary = []; // Array contening only one value per same dice values.
+  this.countRecurrence = {}; //Dice values disoached by their frequence.
 };
 
 // --- Method dice ---
@@ -26,14 +32,13 @@ Player.prototype.throwDice = function() {
   for (var i = 0; i < numberOfDice; i++) {
     this.throwCombination.push(Math.floor(Math.random() * 6 + 1));
   }
-  console.log(this.throwCombination);
+  alert(this.throwCombination);
 };
 
 // --- Method checking each Player's round ---
 
 Player.prototype.validateDice = function() {
   if (this.round === 0) {
-    Player.throwDice();
     this.firstThrow = this.throwScore;
     if (this.firstThrow >= minToPay) {
       if (this.throwScore % 100 === 0) {
@@ -42,14 +47,16 @@ Player.prototype.validateDice = function() {
         this.round++;
         this.throwScore = 0;
       } else {
-        console.log(
-          "You cannot finish a round with a score ending by 50! Be brave and bet again!!"
+        alert(
+          "Aaaar! You cannot finish a round with a score ending with 50! Be brave me hearty and bet again!!"
         );
       }
     } else if (this.firstThrow < minToPay) {
       this.finalScore = 0;
-      console.log(
-        "Pass your turn, you haven't paid the due price to be granted to play"
+      alert(
+        "You haven't paid the " +
+          minToPay +
+          " Pieces of Height as piracy fees to join the adventure! Pass your turn."
       );
     }
   } else if (this.round >= 1) {
@@ -59,16 +66,16 @@ Player.prototype.validateDice = function() {
       this.round++;
       this.throwScore = 0;
     } else if (this.penalty === 3) {
-      console.log(
-        "You received 3 penalties. Your lost your last plunder and must pass your turn."
+      alert(
+        "You received 3 penalties. Your lost plunder is seized! Pass your turn."
       );
       this.tableScores.pop();
       this.penalty = 0;
       this.round++;
       this.throwScore = 0;
     } else {
-      console.log(
-        "You cannot finish a round with a score ending by 50! Be brave and bet again!!"
+      alert(
+        "Aaaar! You cannot finish a round with a score ending with 50! Be brave me hearty and bet again!!"
       );
     }
   }
@@ -81,27 +88,23 @@ Player.prototype.incrementPenalty = function() {
     this.penalty++;
     this.round++;
     this.throwScore = 0;
-    console.log("Pass your turn, you aren't brave enought to play this round.");
+    alert("Pass your turn, you aren't brave enought to play this round.");
   }
 };
 
 // --- Dice values repartition by their frequence ---
 
-var combinaison = [];
-var countRecurrence = {};
 Player.prototype.dispatchPoints = function() {
   for (var i = 0; i < this.throwCombination.length; i++) {
-    if (!combinaison.includes(this.throwCombination[i])) {
-      combinaison.push(this.throwCombination[i]);
-      countRecurrence[this.throwCombination[i]] = 1;
+    if (!this.throwCombinationSummary.includes(this.throwCombination[i])) {
+      this.throwCombinationSummary.push(this.throwCombination[i]);
+      this.countRecurrence[this.throwCombination[i]] = 1;
     } else {
-      countRecurrence[this.throwCombination[i]] += 1;
+      this.countRecurrence[this.throwCombination[i]] += 1;
     }
   }
-  return countRecurrence;
+  return this.countRecurrence;
 };
-dispatchPoints();
-console.log(countRecurrence);
 
 /* --- function used as reference to calculate points --- */
 
@@ -124,61 +127,80 @@ Player.prototype.suite = function() {
 // --- method to assign points to the player ---
 
 Player.prototype.countPoint = function() {
-  var dieNum = Object.keys(countRecurrence);
-  var isSuite = suite();
+  this.dispatchPoints();
+  var dieNum = Object.keys(this.countRecurrence);
+  var isSuite = this.suite();
   if (isSuite === true) {
-    throwScore = 1500;
+    this.throwScore = 1500;
   } else if (isSuite === false) {
     for (var i = 0; i < dieNum.length; i++) {
       var number = Number(dieNum[i]); // NE PAS OUBLIER LA FONCTION Number() A APPLIQUER A dieNum()
-      var frequence = countRecurrence[dieNum[i]];
+      var frequence = this.countRecurrence[dieNum[i]];
       if (frequence === 5) {
         if (number === 1) {
-          throwScore += brelan(10) * 4;
+          this.throwScore += brelan(10) * 4;
         } else {
-          throwScore += brelan(number) * 4;
+          this.throwScore += brelan(number) * 4;
         }
       } else if (frequence === 4) {
         if (number === 1) {
-          throwScore += brelan(10) * 2;
+          this.throwScore += brelan(10) * 2;
         } else {
-          throwScore += brelan(number) * 2;
+          this.throwScore += brelan(number) * 2;
         }
       } else if (frequence === 3) {
         if (number === 1) {
-          throwScore += brelan(10);
+          this.throwScore += brelan(10);
         } else {
-          throwScore += brelan(number);
+          this.throwScore += brelan(number);
         }
       } else if (frequence === 2) {
         if (
-          countRecurrence[dieNum[i - 1 % dieNum.length]] === 3 ||
-          countRecurrence[dieNum[i + 1 % dieNum.length]] === 3
+          this.countRecurrence[dieNum[i - 1 % dieNum.length]] === 3 ||
+          this.countRecurrence[dieNum[i + 1 % dieNum.length]] === 3
         ) {
           if (number === 1) {
-            throwScore += 10 * 50;
+            this.throwScore += 10 * 50;
           } else if (number !== 1) {
-            throwScore += 50 * number;
+            this.throwScore += 50 * number;
           }
         } else {
           if (number === 1) {
-            throwScore += 100 * frequence;
+            this.throwScore += 100 * frequence;
           } else if (number === 5) {
-            throwScore += 50 * frequence;
+            this.throwScore += 50 * frequence;
           }
         }
       } else if (frequence < 2) {
         if (number === 1) {
-          throwScore += 100 * frequence;
+          this.throwScore += 100 * frequence;
         } else if (number === 5) {
-          throwScore += 50 * frequence;
+          this.throwScore += 50 * frequence;
         }
       }
     }
   }
 
-  return throwScore;
+  return this.throwScore;
 };
 
-countPoint();
-console.log(throwScore);
+Player.prototype.play = function() {
+  this.throwDice();
+  this.countPoint();
+  this.validateDice();
+  console.log(this.throwCombination);
+  console.log(this.countRecurrence);
+  console.log(this.round);
+  console.log(this.throwScore);
+  console.log(this.finalScore);
+  console.log(this.tableScores);
+  this.throwCombinationSummary = [];
+  this.throwCombination = [];
+  this.countRecurrence = {};
+};
+
+var playerOne = new Player("Arthur", 0);
+// playerOne.play();
+
+var playerTwo = new Player("Mossa", 0);
+// playerTwo.play();
