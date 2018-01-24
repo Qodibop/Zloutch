@@ -1,15 +1,26 @@
 // @ts-check
 
-var numberOfDice = 5;
 var minToPay = 500;
+var numberOfDice = 0;
 
-function check() {
-  document.getElementById("die1").checked = true;
+function checkDice(dice) {
+  if (document.getElementById(dice).checked) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-function uncheck() {
-  document.getElementById("die1").checked = false;
+function countActiveDice() {
+  numberOfDice = 0;
+  checkDice("die1") === true ? numberOfDice++ : 0;
+  checkDice("die2") === true ? numberOfDice++ : 0;
+  checkDice("die3") === true ? numberOfDice++ : 0;
+  checkDice("die4") === true ? numberOfDice++ : 0;
+  checkDice("die5") === true ? numberOfDice++ : 0;
+  console.log(numberOfDice);
 }
+
 // --- Constructor to build a player ---
 
 var Player = function(name, pictureId) {

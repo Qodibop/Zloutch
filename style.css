@@ -8,12 +8,22 @@ body {
   border: 0;
 }
 
-header {
+/* header {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-content: center;
   width: 100%;
+} */
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+#menu {
+  display: flex;
+  align-content: end;
 }
 
 ul {
@@ -36,8 +46,8 @@ ul {
   display: flex;
   justify-content: center;
   align-content: center;
-  width: 33%;
-  height: 30%;
+  width: 12rem;
+  height: 12rem;
   padding: 1rem;
   margin: 1rem;
 }
