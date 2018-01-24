@@ -40,6 +40,7 @@ var Player = function(name, pictureId) {
 // --- Method dice ---
 
 Player.prototype.throwDice = function() {
+  countActiveDice();
   for (var i = 0; i < numberOfDice; i++) {
     this.throwCombination.push(Math.floor(Math.random() * 6 + 1));
   }
