@@ -1,7 +1,17 @@
 // @ts-check
 
-var minToPay = 500;
-var numberOfDice = 0;
+// --- Constructor to build a game ---
+
+var Game = function(minToPlay, targetToWin, playersNames) {
+  this.minToPlay = minToPlay;
+  this.targetToWin = targetToWin;
+  this.currentTurn = 0;
+
+  this.players = [];
+  for (var i = 0; i < playersNames.length; i++) {
+    this.players.push(new Player(playersNames[i], this.minToPlay));
+  }
+};
 
 function checkDice(dice) {
   if (document.getElementById(dice).checked) {
@@ -11,21 +21,24 @@ function checkDice(dice) {
   }
 }
 
-function countActiveDice() {
-  numberOfDice = 0;
-  checkDice("die1") === true ? numberOfDice++ : 0;
-  checkDice("die2") === true ? numberOfDice++ : 0;
-  checkDice("die3") === true ? numberOfDice++ : 0;
-  checkDice("die4") === true ? numberOfDice++ : 0;
-  checkDice("die5") === true ? numberOfDice++ : 0;
-  console.log(numberOfDice);
-}
+// --- Method to listen to which dice are cheched/actived ---
 
+Game.prototype.play = function() {
+  this.players[this.currentTurn].play();
+  this.updateBoard();
+  if (this.currentTurn === this.players.length - 1) this.currentTurn = 0;
+  else this.currentTurn++;
+};
+
+Game.prototype.updateBoard = function() {
+  var points = this.players[this.currentTurn].finalScore;
+  $("#scoreBoard").text("Score: " + points + " Piece of Height");
+};
 // --- Constructor to build a player ---
 
-var Player = function(name, pictureId) {
+var Player = function(name, minToPlay) {
+  this.numberOfDice = 0;
   this.name = name;
-  this.pic = pictureId;
   this.firstThrow = 0; // equal to finalScore at the end of round 0.
   this.throwScore = 0; // sum of the scores made during a round by the Player after throwing dice.
   this.throwCombination = []; // dice combinations during Player's round.
@@ -35,13 +48,24 @@ var Player = function(name, pictureId) {
   this.round = 0; // count the number of turn, will be used for firstThrow.
   this.throwCombinationSummary = []; // Array contening only one value per same dice values.
   this.countRecurrence = {}; //Dice values disoached by their frequence.
+  this.minToPlay = minToPlay;
 };
 
 // --- Method dice ---
 
+Player.prototype.countActiveDice = function() {
+  this.numberOfDice = 0;
+  checkDice("die1") === true ? this.numberOfDice++ : 0;
+  checkDice("die2") === true ? this.numberOfDice++ : 0;
+  checkDice("die3") === true ? this.numberOfDice++ : 0;
+  checkDice("die4") === true ? this.numberOfDice++ : 0;
+  checkDice("die5") === true ? this.numberOfDice++ : 0;
+  console.log(this.numberOfDice);
+};
+
 Player.prototype.throwDice = function() {
-  countActiveDice();
-  for (var i = 0; i < numberOfDice; i++) {
+  this.countActiveDice();
+  for (var i = 0; i < this.numberOfDice; i++) {
     this.throwCombination.push(Math.floor(Math.random() * 6 + 1));
   }
   alert(this.throwCombination);
@@ -52,7 +76,7 @@ Player.prototype.throwDice = function() {
 Player.prototype.validateDice = function() {
   if (this.round === 0) {
     this.firstThrow = this.throwScore;
-    if (this.firstThrow >= minToPay) {
+    if (this.firstThrow >= this.minToPlay) {
       if (this.throwScore % 100 === 0) {
         this.finalScore += this.throwScore;
         this.tableScores.push(this.finalScore);
@@ -63,11 +87,11 @@ Player.prototype.validateDice = function() {
           "Aaaar! You cannot finish a round with a score ending with 50! Be brave me hearty and bet again!!"
         );
       }
-    } else if (this.firstThrow < minToPay) {
+    } else if (this.firstThrow < this.minToPlay) {
       this.finalScore = 0;
       alert(
         "You haven't paid the " +
-          minToPay +
+          this.minToPlay +
           " Pieces of Height as piracy fees to join the adventure! Pass your turn."
       );
     }
@@ -96,7 +120,7 @@ Player.prototype.validateDice = function() {
 /* ---Method to apply penalty--- */
 
 Player.prototype.incrementPenalty = function() {
-  if (this.firstThrow >= minToPay && this.throwScore === 0) {
+  if (this.firstThrow >= this.minToPlay && this.throwScore === 0) {
     this.penalty++;
     this.round++;
     this.throwScore = 0;
@@ -210,9 +234,3 @@ Player.prototype.play = function() {
   this.throwCombination = [];
   this.countRecurrence = {};
 };
-
-var playerOne = new Player("Arthur", 0);
-// playerOne.play();
-
-var playerTwo = new Player("Mossa", 0);
-// playerTwo.play();

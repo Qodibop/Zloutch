@@ -69,6 +69,13 @@ body {
     background: url("images/Gold_pirates_skull.png") no-repeat center;
     background-size: 80%;
   }
+  #scoreBoard {
+    max-width: 100%;
+    border: 2px solid black;
+    margin: 0 30% 55%;
+    text-align: center;
+    align-items: flex-start;
+  }
 
   h2 {
     text-align: center;
