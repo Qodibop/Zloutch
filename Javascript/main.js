@@ -1,4 +1,4 @@
-var game = new Game(0, 10000, [
+var game = new Game(0, 2000, [
   "Player 1",
   "Player 2",
   "Player 3",
@@ -14,10 +14,9 @@ $(document).ready(function() {
     game.play();
   });
 
-  //   $("#btnCashIn").click(function() {
-  //     updateTableScores();
-  //     game.players[]
-  //   });
+  $("#btnCashIn").click(function() {
+    game.cashIn();
+  });
 });
 
 Player.prototype.updateTableScores = function() {

@@ -31,6 +31,16 @@ function checkDice(dice) {
 
 Game.prototype.play = function() {
   this.players[this.currentTurn].play();
+};
+
+Game.prototype.cashIn = function() {
+  this.players[this.currentTurn].cashIn();
+  if (this.players[this.currentTurn].finalScore >= this.targetToWin) {
+    alert(
+      this.players[this.currentTurn] +
+        " is the Master of the Caribbean and won the jackpot!"
+    );
+  }
   if (this.currentTurn === this.players.length - 1) this.currentTurn = 0;
   else this.currentTurn++;
 };
@@ -133,14 +143,14 @@ Player.prototype.validateDice = function() {
 
 /* ---Method to apply penalty--- */
 
-Player.prototype.incrementPenalty = function() {
-  if (this.firstThrow >= this.minToPlay && this.throwScore === 0) {
-    this.penalty++;
-    this.round++;
-    this.throwScore = 0;
-    alert("Pass your turn, you aren't brave enought to play this round.");
-  }
-};
+// Player.prototype.incrementPenalty = function() {
+//   if (this.firstThrow >= this.minToPlay && this.throwScore === 0) {
+//     this.penalty++;
+//     this.round++;
+//     this.throwScore = 0;
+//     alert("Pass your turn, you aren't brave enought to play this round.");
+//   }
+// };
 
 // --- Dice values repartition by their frequence ---
 
@@ -239,17 +249,10 @@ Player.prototype.updateBoard = function() {
   $("#scoreBoard").text("Score: " + points + " Piece of Height");
 };
 
-// Player.prototype.updateTableScores = function() {
-//   var points = this.throwScore;
-//   $("#scoreBoard").text("Score: " + points + " Piece of Height");
-// };
-
 Player.prototype.play = function() {
   this.throwDice();
   this.countPoint();
   this.updateBoard();
-  this.updateTableScores();
-  this.validateDice();
   console.log(this.throwCombination);
   console.log(this.countRecurrence);
   console.log(this.round);
@@ -259,4 +262,9 @@ Player.prototype.play = function() {
   this.throwCombinationSummary = [];
   this.throwCombination = [];
   this.countRecurrence = {};
+};
+
+Player.prototype.cashIn = function() {
+  this.validateDice();
+  this.updateTableScores();
 };
