@@ -72,9 +72,13 @@ body {
   #scoreBoard {
     max-width: 100%;
     border: 2px solid black;
-    margin: 0 30% 55%;
+    margin: 0 30% 33%;
     text-align: center;
-    align-items: flex-start;
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(61, 71, 83);
+    background-color: rgba(255, 165, 0, 0.5);
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
 
   h2 {
@@ -96,15 +100,21 @@ body {
   }
 
   .dice {
-    transform: scale(4);
+    transform: scale(1);
   }
 
-  .dice:after {
-    content: "1";
+  #sectionDice p {
+    width: 4rem;
+    height: 4rem;
     position: relative;
-    top: 10;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 6px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
   }
-
   /* --- SECTION BUTTONS PLAY AND STOP --- */
 
   #sectionButtons {
@@ -302,6 +312,17 @@ body {
     background-size: 50%;
   }
 
+  #scoreBoard {
+    max-width: 100%;
+    border: 2px solid black;
+    margin: 0 30% 33%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(61, 71, 83);
+    background-color: rgba(255, 165, 0, 0.5);
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
   /* --- SECTION OF THE DICE --- */
   #sectionDice {
     width: 100%;
@@ -316,15 +337,21 @@ body {
   }
 
   .dice {
-    transform: scale(4);
+    transform: scale(1);
   }
 
-  .dice:after {
-    content: "1";
+  #sectionDice p {
+    width: 4rem;
+    height: 4rem;
     position: relative;
-    top: 10;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 6px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
   }
-
   /* --- SECTION BUTTONS PLAY AND STOP --- */
 
   #sectionButtons {
@@ -543,6 +570,18 @@ body {
     background-size: 40%;
   }
 
+  #scoreBoard {
+    max-width: 100%;
+    border: 2px solid black;
+    margin: 0 30% 33%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(61, 71, 83);
+    background-color: rgba(255, 165, 0, 0.5);
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+
   h2 {
     text-align: center;
     size: 2rem;
@@ -562,13 +601,20 @@ body {
   }
 
   .dice {
-    transform: scale(4);
+    transform: scale(1);
   }
 
-  .dice:after {
-    content: "1";
+  #sectionDice p {
+    width: 4rem;
+    height: 4rem;
     position: relative;
-    top: 10;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 6px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
   }
 
   /* --- SECTION BUTTONS PLAY AND STOP --- */

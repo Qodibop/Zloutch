@@ -6,6 +6,14 @@ var Game = function(minToPlay, targetToWin, playersNames) {
   this.minToPlay = minToPlay;
   this.targetToWin = targetToWin;
   this.currentTurn = 0;
+  this.playersNames = [
+    "Player 1",
+    "Player 2",
+    "Player 3",
+    "Player 4",
+    "Player 5",
+    "Player 6"
+  ];
 
   this.players = [];
   for (var i = 0; i < playersNames.length; i++) {
@@ -25,15 +33,10 @@ function checkDice(dice) {
 
 Game.prototype.play = function() {
   this.players[this.currentTurn].play();
-  this.updateBoard();
   if (this.currentTurn === this.players.length - 1) this.currentTurn = 0;
   else this.currentTurn++;
 };
 
-Game.prototype.updateBoard = function() {
-  var points = this.players[this.currentTurn].finalScore;
-  $("#scoreBoard").text("Score: " + points + " Piece of Height");
-};
 // --- Constructor to build a player ---
 
 var Player = function(name, minToPlay) {
@@ -65,10 +68,15 @@ Player.prototype.countActiveDice = function() {
 
 Player.prototype.throwDice = function() {
   this.countActiveDice();
-  for (var i = 0; i < this.numberOfDice; i++) {
-    this.throwCombination.push(Math.floor(Math.random() * 6 + 1));
-  }
-  alert(this.throwCombination);
+  var that = this;
+  $(".dice2 input:checked").each(function(i, el) {
+    var num = Math.floor(Math.random() * 6 + 1);
+    $(el)
+      .parent()
+      .find("p")
+      .text(num);
+    that.throwCombination.push(num);
+  });
 };
 
 // --- Method checking each Player's round ---
@@ -89,6 +97,7 @@ Player.prototype.validateDice = function() {
       }
     } else if (this.firstThrow < this.minToPlay) {
       this.finalScore = 0;
+      this.round++;
       alert(
         "You haven't paid the " +
           this.minToPlay +
@@ -220,9 +229,21 @@ Player.prototype.countPoint = function() {
   return this.throwScore;
 };
 
+Player.prototype.updateBoard = function() {
+  var points = this.throwScore;
+  $("#scoreBoard").text("Score: " + points + " Piece of Height");
+};
+
+Player.prototype.updateTableScores = function() {
+  var points = this.throwScore;
+  $("#scoreBoard").text("Score: " + points + " Piece of Height");
+};
+
 Player.prototype.play = function() {
   this.throwDice();
   this.countPoint();
+  this.updateBoard();
+  this.updateTableScores();
   this.validateDice();
   console.log(this.throwCombination);
   console.log(this.countRecurrence);
