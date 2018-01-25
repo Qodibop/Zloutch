@@ -34,11 +34,12 @@ Game.prototype.play = function() {
 };
 
 Game.prototype.cashIn = function() {
+  var winer = this.players[this.currentTurn];
   this.players[this.currentTurn].cashIn();
   if (this.players[this.currentTurn].finalScore >= this.targetToWin) {
-    alert(
-      this.players[this.currentTurn] +
-        " is the Master of the Caribbean and won the jackpot!"
+    $("#scoreBoard").text(
+      winer +
+        " won the jackpot and becomes the Master of the Caribbean! AAäääa@aâ@âr VICTORY!!!"
     );
   }
   if (this.currentTurn === this.players.length - 1) this.currentTurn = 0;
@@ -60,6 +61,7 @@ var Player = function(name, minToPlay) {
   this.throwCombinationSummary = []; // Array contening only one value per same dice values.
   this.countRecurrence = {}; //Dice values disoached by their frequence.
   this.minToPlay = minToPlay;
+  this.sumScoresPerRound = 0; //compile the score after each throw in the same round;
 };
 
 // --- Method dice ---
@@ -91,13 +93,12 @@ Player.prototype.throwDice = function() {
 
 Player.prototype.validateDice = function() {
   if (this.round === 0) {
-    this.firstThrow = this.throwScore;
+    this.firstThrow = this.sumScoresPerRound;
     if (this.firstThrow >= this.minToPlay) {
-      // if (this.throwScore % 100 === 0) {
-      this.finalScore += this.throwScore;
+      // if (this.sumScoresPerRound % 100 === 0) {
+      this.finalScore += this.sumScoresPerRound;
       this.tableScores.push(this.finalScore);
       this.round++;
-      this.throwScore = 0;
       // } else {
       //   alert(
       //     "Aaaar! You cannot finish a round with a score ending with 50! Be brave me hearty and bet again!!"
@@ -106,40 +107,38 @@ Player.prototype.validateDice = function() {
     } else if (this.firstThrow < this.minToPlay) {
       this.finalScore = 0;
       this.round++;
-      alert(
-        "You haven't paid the " +
+      $("#scoreBoard").text(
+        "You haven't paid " +
           this.minToPlay +
-          " Pieces of Height as piracy fees to join the adventure! Pass your turn."
+          " Pieces of Height as piracy fees to join the adventure! Cash In and Pass your turn."
       );
     }
   } else {
-    this.finalScore += this.throwScore;
+    this.finalScore += this.sumScoresPerRound;
     this.tableScores.push(this.finalScore);
     this.round++;
-    this.throwScore = 0;
   }
-
-  // } else if (this.round >= 1) {
-  //   if (this.throwScore % 100 === 0 && this.penalty < 3) {
-  //     this.finalScore += this.throwScore;
-  //     this.tableScores.push(this.finalScore);
-  //     this.round++;
-  //     this.throwScore = 0;
-  // } else if (this.penalty === 3) {
-  //   alert(
-  //     "You received 3 penalties. Your lost plunder is seized! Pass your turn."
-  //   );
-  //   this.tableScores.pop();
-  //   this.penalty = 0;
-  //   this.round++;
-  //   this.throwScore = 0;
-  // } else {
-  //   alert(
-  //     "Aaaar! You cannot finish a round with a score ending with 50! Be brave me hearty and bet again!!"
-  //   );
-  // }
-  // }
 };
+// } else if (this.round >= 1) {
+//   if (this.throwScore % 100 === 0 && this.penalty < 3) {
+//     this.finalScore += this.throwScore;
+//     this.tableScores.push(this.finalScore);
+//     this.round++;
+//     this.throwScore = 0;
+// } else if (this.penalty === 3) {
+//   alert(
+//     "You received 3 penalties. Your lost plunder is seized! Pass your turn."
+//   );
+//   this.tableScores.pop();
+//   this.penalty = 0;
+//   this.round++;
+//   this.throwScore = 0;
+// } else {
+//   alert(
+//     "Aaaar! You cannot finish a round with a score ending with 50! Be brave me hearty and bet again!!"
+//   );
+// }
+// }
 
 /* ---Method to apply penalty--- */
 
@@ -148,7 +147,7 @@ Player.prototype.validateDice = function() {
 //     this.penalty++;
 //     this.round++;
 //     this.throwScore = 0;
-//     alert("Pass your turn, you aren't brave enought to play this round.");
+//     alert("Aaaar!Pass your turn, you aren't brave enought to play this round.");
 //   }
 // };
 
@@ -245,14 +244,20 @@ Player.prototype.countPoint = function() {
 };
 
 Player.prototype.updateBoard = function() {
-  var points = this.throwScore;
-  $("#scoreBoard").text("Score: " + points + " Piece of Height");
+  var points = this.sumScoresPerRound;
+  if (this.throwScore === 0) {
+    $("#scoreBoard").text(
+      "AAäääaaaââr!You didn't steal any Pieces of Height! Shame on you!!    You lose your gain: Cash In and PASS YOUR TURN"
+    );
+  } else {
+    $("#scoreBoard").text("Score: " + points + " Piece of Height");
+  }
 };
 
 Player.prototype.play = function() {
   this.throwDice();
   this.countPoint();
-  this.updateBoard();
+  this.sumScoreRound();
   console.log(this.throwCombination);
   console.log(this.countRecurrence);
   console.log(this.round);
@@ -264,7 +269,22 @@ Player.prototype.play = function() {
   this.countRecurrence = {};
 };
 
+Player.prototype.sumScoreRound = function() {
+  if (this.throwScore === 0) {
+    // $("#scoreBoard").text(
+    //   "AAäääaaaââr!You didn't steal any Pieces of Height! Shame on you!!    You lose your gain: Cash In and PASS YOUR TURN"
+    // );
+    this.sumScoresPerRound = 0;
+  } else {
+    this.sumScoresPerRound += this.throwScore;
+  }
+  this.updateBoard();
+  this.throwScore = 0;
+};
+
 Player.prototype.cashIn = function() {
   this.validateDice();
   this.updateTableScores();
+  this.sumScoresPerRound = 0;
+  $("#scoreBoard").text("");
 };
