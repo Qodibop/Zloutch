@@ -29,8 +29,6 @@ function checkDice(dice) {
   }
 }
 
-// --- Method to listen to which dice are cheched/actived ---
-
 Game.prototype.play = function() {
   this.players[this.currentTurn].play();
   if (this.currentTurn === this.players.length - 1) this.currentTurn = 0;
@@ -85,16 +83,16 @@ Player.prototype.validateDice = function() {
   if (this.round === 0) {
     this.firstThrow = this.throwScore;
     if (this.firstThrow >= this.minToPlay) {
-      if (this.throwScore % 100 === 0) {
-        this.finalScore += this.throwScore;
-        this.tableScores.push(this.finalScore);
-        this.round++;
-        this.throwScore = 0;
-      } else {
-        alert(
-          "Aaaar! You cannot finish a round with a score ending with 50! Be brave me hearty and bet again!!"
-        );
-      }
+      // if (this.throwScore % 100 === 0) {
+      this.finalScore += this.throwScore;
+      this.tableScores.push(this.finalScore);
+      this.round++;
+      this.throwScore = 0;
+      // } else {
+      //   alert(
+      //     "Aaaar! You cannot finish a round with a score ending with 50! Be brave me hearty and bet again!!"
+      //   );
+      // }
     } else if (this.firstThrow < this.minToPlay) {
       this.finalScore = 0;
       this.round++;
@@ -104,26 +102,33 @@ Player.prototype.validateDice = function() {
           " Pieces of Height as piracy fees to join the adventure! Pass your turn."
       );
     }
-  } else if (this.round >= 1) {
-    if (this.throwScore % 100 === 0 && this.penalty < 3) {
-      this.finalScore += this.throwScore;
-      this.tableScores.push(this.finalScore);
-      this.round++;
-      this.throwScore = 0;
-    } else if (this.penalty === 3) {
-      alert(
-        "You received 3 penalties. Your lost plunder is seized! Pass your turn."
-      );
-      this.tableScores.pop();
-      this.penalty = 0;
-      this.round++;
-      this.throwScore = 0;
-    } else {
-      alert(
-        "Aaaar! You cannot finish a round with a score ending with 50! Be brave me hearty and bet again!!"
-      );
-    }
+  } else {
+    this.finalScore += this.throwScore;
+    this.tableScores.push(this.finalScore);
+    this.round++;
+    this.throwScore = 0;
   }
+
+  // } else if (this.round >= 1) {
+  //   if (this.throwScore % 100 === 0 && this.penalty < 3) {
+  //     this.finalScore += this.throwScore;
+  //     this.tableScores.push(this.finalScore);
+  //     this.round++;
+  //     this.throwScore = 0;
+  // } else if (this.penalty === 3) {
+  //   alert(
+  //     "You received 3 penalties. Your lost plunder is seized! Pass your turn."
+  //   );
+  //   this.tableScores.pop();
+  //   this.penalty = 0;
+  //   this.round++;
+  //   this.throwScore = 0;
+  // } else {
+  //   alert(
+  //     "Aaaar! You cannot finish a round with a score ending with 50! Be brave me hearty and bet again!!"
+  //   );
+  // }
+  // }
 };
 
 /* ---Method to apply penalty--- */
@@ -234,10 +239,10 @@ Player.prototype.updateBoard = function() {
   $("#scoreBoard").text("Score: " + points + " Piece of Height");
 };
 
-Player.prototype.updateTableScores = function() {
-  var points = this.throwScore;
-  $("#scoreBoard").text("Score: " + points + " Piece of Height");
-};
+// Player.prototype.updateTableScores = function() {
+//   var points = this.throwScore;
+//   $("#scoreBoard").text("Score: " + points + " Piece of Height");
+// };
 
 Player.prototype.play = function() {
   this.throwDice();

@@ -14,9 +14,10 @@ $(document).ready(function() {
     game.play();
   });
 
-  $("#btnCashIn").click(function() {
-    updateTableScores();
-  });
+  //   $("#btnCashIn").click(function() {
+  //     updateTableScores();
+  //     game.players[]
+  //   });
 });
 
 Player.prototype.updateTableScores = function() {
@@ -32,3 +33,9 @@ Player.prototype.creatTr = function() {
   var idTr = "<tr id=r" + this.round + "></tr>";
   $("#tableScoresBody").append(idTr);
 };
+
+// var changePlayer = function() {
+//   for (var i = 0; i < playersNames.length; i++) {
+//     this.players.push(new Player(playersNames[i], this.minToPlay));
+//   }
+// };
