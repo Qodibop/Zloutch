@@ -1,6 +1,5 @@
 body {
   max-width: 100%;
-  height: 100%;
   font-size: 20px;
   margin: 0;
   padding: 0;
@@ -48,10 +47,6 @@ body {
   }
   .btn {
     margin-top: 1.8rem;
-  }
-  header ul li a {
-    max-width: 100%;
-    margin-right: -7rem;
   }
 
   #subTitle {
@@ -107,18 +102,20 @@ body {
 
   #sectionButtons {
     max-width: 100%;
-    height: auto;
     background-color: orange;
-    padding: 1rem 5rem;
-    margin: 5% 12%;
+    padding: 0.2rem 2rem;
+    margin: 1% 12%;
     border-radius: 6px;
   }
 
   #sectionButtons button {
     padding: 1rem;
     margin-bottom: 3rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
+    flex-grow: 1;
+    margin: 2rem;
+    width: 50%;
   }
 
   /* --- SECTION TABLES SCORE AND RULES --- */
@@ -129,71 +126,68 @@ body {
     margin: 1rem 0;
   }
 
-  tr td, th {
-    font-family: "Franklin Gothic Medium", "Arial Narrow",
-    Arial, sans-serif;
+  tr td,
+  th {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     text-align: center;
   }
 
-  #sectionTableScores h6{
+  #sectionTableScores h6 {
     font-size: 1.2rem;
     font-weight: bold;
     text-align: center;
-}
+  }
   /* --- SECTION RULES & HISTORY --- */
-  #rulesHistory{
-      max-width: 100%;
-      min-height: 100;
-      background-color: rgb(61, 71, 83);
-      margin: 2rem;
-      padding: 2rem;
-      text-align: justify;
-      color: white;
-      border-radius: 6px;
+  #rulesHistory {
+    max-width: 100%;
+    min-height: 100;
+    background-color: rgb(61, 71, 83);
+    margin: 2rem;
+    padding: 2rem;
+    text-align: justify;
+    color: white;
+    border-radius: 6px;
   }
-  #rulesHistory hr{
-      margin: 1rem 4rem 2rem;
+  #rulesHistory hr {
+    margin: 1rem 4rem 2rem;
+  }
 
-  }
- 
   #quote {
-    
     font-style: italic;
     text-align: center;
     margin-bottom: 0;
-    font-family: "Franklin Gothic Medium", "Arial Narrow",
-      Arial, sans-serif;
-      font-size: 2.5rem;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 2.5rem;
   }
 
   #blackBird {
     font-weight: bold;
     text-align: right;
     margin-right: 3rem;
-    margin-top:1rem;
+    margin-top: 1rem;
     font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
       Arial, sans-serif;
     font-size: 2.2rem;
   }
 
   #tableOfRules {
-      border: 2rem;
+    border: 2rem;
     font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
-    Arial, sans-serif;
+      Arial, sans-serif;
     text-align: center;
   }
-  #tableOfRules h6{
-      font-size: 1.8rem;
-      font-weight: bold;
-      text-align: center;
+  #tableOfRules h6 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
   }
   #rulesHistory h5 {
     text-align: center;
     font-style: italic;
     font-weight: bold;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    color: white;  
-}
+    color: white;
+  }
   /* --- SECTION FOOTER --- */
   footer {
     max-width: 100%;
@@ -206,8 +200,8 @@ body {
     font-style: italic;
     font-weight: bold;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    color: rgb(61, 71, 83);  
-}
+    color: rgb(61, 71, 83);
+  }
   footer ul {
     display: flex;
     justify-content: center;
@@ -220,15 +214,493 @@ body {
   footer p {
     padding: 0rem 1rem;
     text-align: center;
-    font-weight:bold;
+    font-weight: bold;
     color: rgb(61, 71, 83);
     font-family: "Franklin Gothic Medium", "Arial Narrow";
   }
 }
 
-/* TABLET VERSION < 505px */
+/* TABLET VERSION 506px < Screen < 1024px */
 
-@media (min-width: 505px) and (max-width: 1024) {
+@media (min-width: 506px) and (max-width: 1025px) {
   /* --- HEADER --- */
 
-  
+  header {
+    max-width: 100%;
+    height: 8rem;
+    border-bottom: 3px solid orange;
+    margin: 10px 3rem 1.5rem;
+  }
+
+  header h1 {
+    display: flex;
+    justify-content: center;
+    color: orange;
+    font-size: 6.5rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  header .btn-group {
+    display: flex;
+    justify-content: flex-end;
+    height: 30%;
+  }
+
+  header div {
+    display: flex;
+    justify-content: space-between;
+    justify-content: row;
+    align-content: center;
+  }
+
+  #btn-group {
+    width: 5rem;
+    height: 7rem;
+    margin-right: 5rem;
+    margin-top: 4rem;
+  }
+  .btn {
+    margin-top: 2.8rem;
+    width: 7rem;
+    height: 4rem;
+  }
+
+  .btn-group .btn-danger {
+    font-size: 2rem;
+  }
+
+  #subTitle {
+    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
+      Arial, sans-serif;
+    text-align: center;
+    font-size: 5rem;
+    height: 5rem;
+    width: 100%;
+  }
+  .dropdown-menu.my-dropdown-menu {
+    left: auto;
+  }
+  /* --- SECTION 1 - FRONTER AND BIG SKULL --- */
+
+  #fronter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 1rem;
+    max-width: 100%;
+    height: 55rem;
+    background: url("images/Gold_pirates_skull.png") no-repeat center;
+    background-size: 50%;
+  }
+
+  /* --- SECTION OF THE DICE --- */
+  #sectionDice {
+    width: 100%;
+    height: 10rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+  }
+
+  .dice {
+    transform: scale(4);
+  }
+
+  .dice:after {
+    content: "1";
+    position: relative;
+    top: 10;
+  }
+
+  /* --- SECTION BUTTONS PLAY AND STOP --- */
+
+  #sectionButtons {
+    max-width: 100%;
+    background-color: orange;
+    padding: 0.2rem 2rem;
+    margin: 1% 12%;
+    border-radius: 6px;
+  }
+
+  #sectionButtons button {
+    padding: 1rem;
+    margin-bottom: 3rem;
+    font-size: 4rem;
+    font-weight: bold;
+    flex-grow: 1;
+    margin: 2rem;
+    height: 8rem;
+  }
+
+  #sectionButtons div {
+    display: flex;
+    padding: 1rem;
+    flex-direction: row;
+  }
+  #sectionButtons div #btnPlay,
+  #btnCashIn {
+    padding: 1rem;
+  }
+  /* --- SECTION TABLES SCORE AND RULES --- */
+
+  #sectionTableScores {
+    width: 100%;
+    height: 40rem;
+    margin: 2rem 0;
+  }
+
+  tr td,
+  th {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    text-align: center;
+    font-size: 2.8rem;
+  }
+
+  #sectionTableScores h6 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  /* --- SECTION RULES & HISTORY --- */
+  #rulesHistory {
+    max-width: 100%;
+    min-height: 100;
+    background-color: rgb(61, 71, 83);
+    margin: 2rem;
+    padding: 2rem 4rem;
+    text-align: justify;
+    color: white;
+    border-radius: 6px;
+    text-align: center;
+  }
+  #rulesHistory hr {
+    margin: 1rem 4rem 2rem;
+  }
+  #rulesHistory .text {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    padding: 1rem 4rem;
+  }
+
+  #rulesHistory h2 {
+    font-size: 6rem;
+    padding: 1rem 3rem 3rem;
+  }
+
+  #quote {
+    font-style: italic;
+    text-align: center;
+    margin: 2rem 1rem 0;
+    padding-top: 2rem;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 4.5rem;
+  }
+
+  #blackBird {
+    font-weight: bold;
+    text-align: right;
+    margin-right: 15rem;
+    margin-top: 1rem;
+    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
+      Arial, sans-serif;
+    font-size: 3.6rem;
+  }
+
+  #tableOfRules {
+    border: 2rem;
+    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
+      Arial, sans-serif;
+    text-align: center;
+  }
+
+  #tableOfRules h6 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  #rulesHistory h5 {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    color: white;
+    font-size: 3rem;
+  }
+  /* --- SECTION FOOTER --- */
+  footer {
+    max-width: 100%;
+    height: 5rem;
+    border-top: 3px solid orange;
+    margin: 10px 3rem 2rem;
+  }
+  footer h5 {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    color: rgb(61, 71, 83);
+  }
+  footer ul {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  footer li {
+    padding: 0.2rem 1rem;
+  }
+  footer p {
+    padding: 0rem 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(61, 71, 83);
+    font-family: "Franklin Gothic Medium", "Arial Narrow";
+  }
+}
+
+/* LAPTOP VERSION 1024px < Screen  */
+
+@media (min-width: 1025px) {
+  /* --- HEADER --- */
+
+  header {
+    max-width: 100%;
+    height: 8rem;
+    border-bottom: 3px solid orange;
+    margin: 10px 3rem 1.5rem;
+  }
+
+  header h1 {
+    display: flex;
+    justify-content: center;
+    color: orange;
+    font-size: 6.5rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  header .btn-group {
+    display: flex;
+    justify-content: flex-end;
+    height: 30%;
+  }
+
+  header div {
+    display: flex;
+    justify-content: space-between;
+    justify-content: row;
+    align-content: center;
+  }
+
+  #btn-group {
+    width: 5rem;
+    height: 7rem;
+    margin-right: 5rem;
+    margin-top: 4rem;
+  }
+  .btn {
+    margin-top: 2.8rem;
+    width: 7rem;
+    height: 4rem;
+  }
+
+  .btn-group .btn-danger {
+    font-size: 2rem;
+  }
+
+  #subTitle {
+    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
+      Arial, sans-serif;
+    font-size: 8rem;
+  }
+  .dropdown-menu.my-dropdown-menu {
+    left: auto;
+  }
+  /* --- SECTION 1 - FRONTER AND BIG SKULL --- */
+
+  #fronter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 1rem;
+    max-width: 100%;
+    height: 70rem;
+    background: url("images/Gold_pirates_skull.png") no-repeat center;
+    background-size: 40%;
+  }
+
+  h2 {
+    text-align: center;
+    size: 2rem;
+  }
+
+  /* --- SECTION OF THE DICE --- */
+  #sectionDice {
+    width: 100%;
+    height: 10rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+  }
+
+  .dice {
+    transform: scale(4);
+  }
+
+  .dice:after {
+    content: "1";
+    position: relative;
+    top: 10;
+  }
+
+  /* --- SECTION BUTTONS PLAY AND STOP --- */
+
+  #sectionButtons {
+    max-width: 100%;
+    background-color: orange;
+    padding: 0.2rem 2rem;
+    margin: 1% 12%;
+    border-radius: 6px;
+  }
+
+  #sectionButtons button {
+    padding: 1rem;
+    margin: 3rem 2rem;
+    font-size: 3.5rem;
+    font-weight: bold;
+    flex-grow: 1;
+    height: 6rem;
+  }
+
+  #sectionButtons div {
+    display: flex;
+    padding: 1rem;
+    flex-direction: row;
+  }
+  #sectionButtons div #btnPlay,
+  #btnCashIn {
+    padding: 1rem;
+  }
+  /* --- SECTION TABLES SCORE AND RULES --- */
+
+  #sectionTableScores {
+    width: 100%;
+    height: 40rem;
+    margin: 1rem 0;
+  }
+
+  tr td,
+  th {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  #sectionTableScores h6 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  /* --- SECTION RULES & HISTORY --- */
+  #rulesHistory {
+    max-width: 100%;
+    min-height: 100;
+    background-color: rgb(61, 71, 83);
+    margin: 3rem;
+    padding: 4rem;
+    text-align: justify;
+    color: white;
+    border-radius: 6px;
+    font-size: 3rem;
+    text-align: center;
+  }
+  #rulesHistory p {
+    margin-bottom: 5rem;
+  }
+  #rulesHistory h2 {
+    font-size: 6rem;
+    padding: 3rem;
+  }
+  #rulesHistory hr {
+    margin: 1rem 4rem 2rem;
+  }
+
+  #quote {
+    font-style: italic;
+    text-align: center;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 4rem;
+    padding-top: 2rem;
+  }
+
+  #blackBird {
+    font-weight: bold;
+    text-align: right;
+    margin-right: 35rem;
+    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
+      Arial, sans-serif;
+    font-size: 4rem;
+  }
+
+  #tableOfRules {
+    border: 2rem;
+    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
+      Arial, sans-serif;
+    text-align: center;
+    font-size: 3rem;
+  }
+  #tableOfRules h6 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  #rulesHistory h5 {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    color: white;
+    font-size: 4rem;
+  }
+  /* --- SECTION FOOTER --- */
+  footer {
+    max-width: 100%;
+    height: 5rem;
+    border-top: 3px solid orange;
+    margin: 10px 3rem 2rem;
+  }
+  footer h5 {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    color: rgb(61, 71, 83);
+  }
+  footer ul {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  footer li {
+    padding: 0.2rem 1rem;
+  }
+  footer p {
+    padding: 0rem 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(61, 71, 83);
+    font-family: "Franklin Gothic Medium", "Arial Narrow";
+  }
+}
