@@ -16,9 +16,6 @@ var Game = function() {
   ];
   this.numberOfPlayers = 0;
   this.players = [];
-  for (var i = 0; i < this.numberOfPlayers; i++) {
-    this.players.push(new Player(this.playersNames[i], this.minToPlay));
-  }
 };
 
 function checkDice(dice) {
@@ -33,7 +30,15 @@ Game.prototype.setUp = function() {
   this.numberOfPlayers = parseInt($("#menuSetUpPlayers").val());
   this.minToPlay = parseInt($("#menuSetUpminToPlay").val());
   this.targetToWin = parseInt($("#menuSetUptargetToWin").val());
-}; //listener ne marchent pas...
+  this.setUpPlayers();
+  this.makeHeaderTableScores();
+};
+
+Game.prototype.setUpPlayers = function() {
+  for (var i = 0; i < this.numberOfPlayers; i++) {
+    this.players.push(new Player(this.playersNames[i], this.minToPlay));
+  }
+};
 
 Game.prototype.play = function() {
   this.players[this.currentTurn].play();
