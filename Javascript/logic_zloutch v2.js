@@ -2,9 +2,9 @@
 
 // --- Constructor to build a game ---
 
-var Game = function(minToPlay, targetToWin, playersNames) {
-  this.minToPlay = minToPlay;
-  this.targetToWin = targetToWin;
+var Game = function() {
+  this.minToPlay = 0;
+  this.targetToWin = 1000;
   this.currentTurn = 0;
   this.playersNames = [
     "Balckbeard",
@@ -14,10 +14,10 @@ var Game = function(minToPlay, targetToWin, playersNames) {
     "Jacquotte Delahaye",
     "Anne Dieu-le-Veut"
   ];
-
+  this.numberOfPlayers = 6;
   this.players = [];
-  for (var i = 0; i < playersNames.length; i++) {
-    this.players.push(new Player(playersNames[i], this.minToPlay));
+  for (var i = 0; i < this.numberOfPlayers; i++) {
+    this.players.push(new Player(this.playersNames[i], this.minToPlay));
   }
 };
 

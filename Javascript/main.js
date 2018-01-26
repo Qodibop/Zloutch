@@ -1,20 +1,10 @@
-var minToPlayGame = 0;
-var targetToWinGame = 0;
-
 var setUp = function() {
   numberOfPlayers = parseInt($("#menuSetUpPlayers").val());
   minToPlayGame = parseInt($("#menuSetUpminToPlay").val());
-  targetToWinGame = parseInt($("#menuSetUptargetToWin").val());
-};
+  targetToWinGame = $("#menuSetUptargetToWin").val();
+}; //listener ne marchent pas...
 
-var game = new Game(minToPlayGame, 10000, [
-  "Balckbeard",
-  "Jack Sparrow",
-  "Barbarossa",
-  "Lady Mary Killigrew",
-  "Jacquotte Delahaye",
-  "Anne Dieu-le-Veut"
-]);
+var game = new Game();
 
 $(document).ready(function() {
   $("#saveSetUp").click(function() {
