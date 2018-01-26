@@ -14,7 +14,7 @@ var Game = function() {
     "Jacquotte Delahaye",
     "Anne Dieu-le-Veut"
   ];
-  this.numberOfPlayers = 6;
+  this.numberOfPlayers = 0;
   this.players = [];
   for (var i = 0; i < this.numberOfPlayers; i++) {
     this.players.push(new Player(this.playersNames[i], this.minToPlay));
@@ -40,11 +40,10 @@ Game.prototype.play = function() {
 };
 
 Game.prototype.cashIn = function() {
-  var winer = this.players[this.currentTurn];
   this.players[this.currentTurn].cashIn();
   if (this.players[this.currentTurn].finalScore >= this.targetToWin) {
     $("#scoreBoard").text(
-      winer +
+      this.players[this.currentTurn].name +
         " won the jackpot and becomes the Master of the Caribbean! AAäääa@aâ@âr VICTORY!!!"
     );
   }
@@ -116,7 +115,7 @@ Player.prototype.validateDice = function() {
       $("#scoreBoard").text(
         "You haven't paid " +
           this.minToPlay +
-          " Pieces of Eight as piracy fees to join the adventure! Cash In and Pass your turn."
+          " Pieces of Eight as piracy fee to join the adventure! Cash In and Pass your turn."
       );
     }
   } else {
