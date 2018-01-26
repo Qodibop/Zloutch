@@ -293,7 +293,7 @@ body {
   }
 
   .btn-group .btn-danger {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   #subTitle {
@@ -395,6 +395,7 @@ body {
   #sectionTableScores {
     width: 100%;
     margin: 2rem 0;
+    text-align: center;
   }
 
   tr td,
@@ -407,6 +408,15 @@ body {
   #sectionTableScores h6 {
     font-size: 3rem;
     font-weight: bold;
+    text-align: center;
+  }
+  /* --- SECTION SET UP PARAMETERS --- */
+
+  #menuSetUp {
+    margin: 2rem;
+    padding: 4rem 10rem;
+    background-color: beige;
+    border-radius: 6px;
     text-align: center;
   }
   /* --- SECTION RULES & HISTORY --- */
@@ -541,15 +551,15 @@ body {
   }
 
   #btn-group {
-    width: 5rem;
+    width: 8rem;
     height: 7rem;
     margin-right: 5rem;
     margin-top: 4rem;
   }
   .btn {
-    margin-top: 2.8rem;
-    width: 7rem;
-    height: 4rem;
+    margin-top: 0.8rem;
+    width: 8rem;
+    height: 6rem;
   }
 
   .btn-group .btn-danger {
@@ -677,8 +687,10 @@ body {
 
   #menuSetUp {
     margin: 2rem;
-    padding: 2rem;
+    padding: 4rem 10rem;
     background-color: beige;
+    border-radius: 6px;
+    text-align: center;
   }
 
   /* --- SECTION RULES & HISTORY --- */
