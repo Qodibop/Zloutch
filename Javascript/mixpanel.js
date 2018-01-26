@@ -22,9 +22,10 @@ try {
 }
 mixpanel.time_event("Click"); // Start a chronometer for "Click"
 document.addEventListener("click", function() {
+  console.log("Hello");
   mixpanel.track("Click"); // Track "Click"
   mixpanel.time_event("Click"); // Start a new chronometer for "Click"
 });
 // End Mixpanel tracking
 
-mixpanel("Test");
+mixpanel.track("Test");
