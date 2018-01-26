@@ -64,6 +64,11 @@ body {
   #subTitle {
     font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
       Arial, sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    height: 5rem;
+    max-width: 100%;
+    margin: 1rem;
   }
   .dropdown-menu.my-dropdown-menu {
     left: auto;
@@ -566,6 +571,7 @@ body {
     font-weight: bold;
     font-family: "Supermercado One", "Arial Narrow", Arial, sans-serif;
     color: rgb(61, 71, 83);
+    font-size: 2.5rem;
   }
   footer ul {
     display: flex;
@@ -575,6 +581,7 @@ body {
 
   footer li {
     padding: 0.2rem 1rem;
+    font-size: 1.8rem;
   }
   footer p {
     padding: 0rem 1rem;
@@ -590,6 +597,18 @@ body {
 
 @media (min-width: 1025px) {
   /* --- HEADER --- */
+
+  #menuMobile {
+    display: block;
+    position: fixed;
+    right: 3rem;
+    top: 0;
+  }
+  #menuLaptop {
+    display: none;
+    position: fixed;
+    top: 0;
+  }
 
   header {
     max-width: 100%;
@@ -639,8 +658,13 @@ body {
   #subTitle {
     font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
       Arial, sans-serif;
+    text-align: center;
     font-size: 8rem;
+    height: 5rem;
+    max-width: 100%;
+    margin: 3rem 1rem;
   }
+
   .dropdown-menu.my-dropdown-menu {
     left: auto;
   }
@@ -653,20 +677,22 @@ body {
     align-content: center;
     padding: 1rem;
     max-width: 100%;
-    height: 70rem;
-    background: url("images/Gold_pirates_skull.png") no-repeat center;
+    min-height: 60rem;
+    background: url("images/Gold_pirates_skull.png") no-repeat left;
     background-size: 40%;
+    margin: 1rem 0;
   }
 
   #dialogBox {
-    max-width: 100%;
-    border: 2px solid black;
-    margin: 0 30% 33%;
+    width: 50%;
+    border: 2px solid orange;
+    border-radius: 14% 15px 30% 25px;
+    margin: 24% 0 0% 43%;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
     color: rgb(61, 71, 83);
-    background-color: rgba(255, 165, 0, 0.5);
+    background-color: rgba(255, 165, 0, 0.8);
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
 
@@ -739,7 +765,14 @@ body {
     width: 100%;
     margin: 1rem 0;
   }
-
+  #sectionTableScores h2 {
+    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
+      Arial, sans-serif;
+    text-align: center;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+  }
   tr td,
   th {
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -756,13 +789,34 @@ body {
   /* --- SECTION SET UP PARAMETERS --- */
 
   #menuSetUp {
-    margin: 2rem;
+    margin: 3rem;
     padding: 4rem 10rem;
-    background-color: beige;
+    border: 6px solid orange;
+    background-color: white;
     border-radius: 6px;
     text-align: center;
   }
 
+  #menuSetUp h2 {
+    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
+      Arial, sans-serif;
+    text-align: center;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    color: orange;
+    padding: 0 0 3rem;
+  }
+
+  #saveSetUp.btn-sample {
+    color: #ffffff;
+    background-color: orange;
+    border-color: orange;
+    padding: 1rem;
+    width: 30%;
+    height: 20%;
+    font-size: 4rem;
+  }
   /* --- SECTION RULES & HISTORY --- */
   #rulesHistory {
     max-width: 100%;
@@ -833,10 +887,10 @@ body {
   }
   footer h5 {
     text-align: center;
-    font-style: italic;
     font-weight: bold;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-family: "Supermercado One", "Arial Narrow", Arial, sans-serif;
     color: rgb(61, 71, 83);
+    font-size: 2.5rem;
   }
   footer ul {
     display: flex;
@@ -846,9 +900,11 @@ body {
 
   footer li {
     padding: 0.2rem 1rem;
+    font-size: 1.8rem;
   }
   footer p {
     padding: 0rem 1rem;
+    margin-bottom: 2rem;
     text-align: center;
     font-weight: bold;
     color: rgb(61, 71, 83);
