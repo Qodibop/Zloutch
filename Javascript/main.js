@@ -1,6 +1,9 @@
 var game = new Game();
 
 $(document).ready(function() {
+  $("#newGame").click(function() {
+    location.reload();
+  });
   $("#saveSetUp").click(function() {
     game.setUp();
   });
