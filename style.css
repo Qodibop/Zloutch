@@ -5,10 +5,22 @@ body {
   padding: 0;
   border: 0;
 }
+
 /* PHONE VERSION < 505px */
 
 @media (max-width: 505px) {
   /* --- HEADER --- */
+  #menuMobile {
+    display: block;
+    position: fixed;
+    right: 3rem;
+    top: 0;
+  }
+  #menuLaptop {
+    display: none;
+    position: fixed;
+    top: 0;
+  }
 
   header {
     max-width: 100%;
@@ -65,19 +77,19 @@ body {
     align-content: center;
     padding: 1rem;
     max-width: 100%;
-    height: 40rem;
+    min-height: 20rem;
     background: url("images/Gold_pirates_skull.png") no-repeat center;
-    background-size: 80%;
+    background-size: 60%;
   }
-  #scoreBoard {
+  #dialogBox {
     max-width: 100%;
-    border: 2px solid black;
-    margin: 0 30% 33%;
+    border: 2px solid orange;
+    margin: 0 19% 70%;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
     color: rgb(61, 71, 83);
-    background-color: rgba(255, 165, 0, 0.5);
+    background-color: rgba(255, 165, 0, 0.8);
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
 
@@ -127,11 +139,11 @@ body {
 
   #sectionButtons button {
     padding: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     font-size: 1.8rem;
     font-weight: bold;
     flex-grow: 1;
-    margin: 2rem;
+    margin: 0.5rem;
     width: 50%;
   }
 
@@ -140,6 +152,11 @@ body {
   #sectionTableScores {
     max-width: 100%;
     margin: 1rem 0;
+  }
+  #sectionTableScores h2 {
+    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
+      Arial, sans-serif;
+    text-align: center;
   }
 
   tr td,
@@ -159,8 +176,21 @@ body {
   #menuSetUp {
     margin: 2rem;
     padding: 1rem;
-    background-color: beige;
+    background-color: white;
     border-radius: 6px;
+    border: 2px solid orange;
+  }
+
+  #menuSetUp h2 {
+    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
+      Arial, sans-serif;
+    text-align: center;
+    color: orange;
+  }
+  #saveSetUp.btn-sample {
+    color: #ffffff;
+    background-color: orange;
+    border-color: orange;
   }
 
   /* --- SECTION RULES & HISTORY --- */
@@ -217,15 +247,13 @@ body {
   /* --- SECTION FOOTER --- */
   footer {
     max-width: 100%;
-    height: 5rem;
     border-top: 3px solid orange;
-    margin: 10px 3rem 3rem;
+    margin: 10px 3rem 0.5rem;
   }
   footer h5 {
     text-align: center;
-    font-style: italic;
     font-weight: bold;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-family: "Supermercado One", "Arial Narrow", Arial, sans-serif;
     color: rgb(61, 71, 83);
   }
   footer ul {
@@ -239,6 +267,7 @@ body {
   }
   footer p {
     padding: 0rem 1rem;
+    margin-bottom: 2rem;
     text-align: center;
     font-weight: bold;
     color: rgb(61, 71, 83);
@@ -321,7 +350,7 @@ body {
     background-size: 50%;
   }
 
-  #scoreBoard {
+  #dialogBox {
     max-width: 100%;
     border: 2px solid black;
     margin: 0 30% 33%;
@@ -588,7 +617,7 @@ body {
     background-size: 40%;
   }
 
-  #scoreBoard {
+  #dialogBox {
     max-width: 100%;
     border: 2px solid black;
     margin: 0 30% 33%;

@@ -47,7 +47,7 @@ Game.prototype.play = function() {
 Game.prototype.cashIn = function() {
   this.players[this.currentTurn].cashIn();
   if (this.players[this.currentTurn].finalScore >= this.targetToWin) {
-    $("#scoreBoard").text(
+    $("#dialogBox").text(
       this.players[this.currentTurn].name +
         " won the jackpot and becomes the Master of the 7 Seas! Aäääaar VICTORY!!!"
     );
@@ -117,7 +117,7 @@ Player.prototype.validateDice = function() {
     } else if (this.firstThrow < this.minToPlay) {
       this.finalScore = 0;
       this.round++;
-      $("#scoreBoard").text(
+      $("#dialogBox").text(
         "You haven't paid " +
           this.minToPlay +
           " Pieces of Eight as piracy fee to join the adventure! Cash In and Pass your turn."
@@ -256,11 +256,11 @@ Player.prototype.countPoint = function() {
 Player.prototype.updateBoard = function() {
   var points = this.sumScoresPerRound;
   if (this.throwScore === 0) {
-    $("#scoreBoard").text(
+    $("#dialogBox").text(
       "AAäääaaaââr!You didn't steal any Pieces of Eight! Shame on you!!    You lose your gain: Cash In and PASS YOUR TURN"
     );
   } else {
-    $("#scoreBoard").text("Score: " + points + " Pieces of Eight");
+    $("#dialogBox").text("Score: " + points + " Pieces of Eight");
   }
 };
 
@@ -281,7 +281,7 @@ Player.prototype.play = function() {
 
 Player.prototype.sumScoreRound = function() {
   if (this.throwScore === 0) {
-    // $("#scoreBoard").text(
+    // $("#dialogBox").text(
     //   "AAäääaaaââr!You didn't steal any Pieces of Eight! Shame on you!!    You lose your gain: Cash In and PASS YOUR TURN"
     // );
     this.sumScoresPerRound = 0;
@@ -296,5 +296,5 @@ Player.prototype.cashIn = function() {
   this.validateDice();
   this.updateTableScores();
   this.sumScoresPerRound = 0;
-  $("#scoreBoard").text("");
+  $("#dialogBox").text("");
 };

@@ -30,33 +30,37 @@
                 <div>
                     <h1>Zloutch</h1>
 
-                    <!-- Split button -->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-danger">
+                    <div id="menuMobile">
+                        <div class="btn-group">
+                            <!-- <button type="button" class="btn btn-danger">
                             <a href="#menuSetUp">Set Up</a>
-                        </button>
-                        <button id="dropdownToggle" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu my-dropdown-menu">
-                            <li>
-                                <a href="#sectionDice">Back to dice</a>
-                            </li>
-                            <li>
-                                <a href="#rulesHistory">History and Rules</a>
-                            </li>
-                            <li>
-                                <a href="#sectionTableScores">Tables Score</a>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <a id="newGame" href="#menuSetUp">New Game</a>
-                            </li>
-                        </ul>
+                        </button> -->
+                            <button id="dropdownToggle" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu my-dropdown-menu">
+                                <li>
+                                    <a href="#sectionDice">Back to dice</a>
+                                </li>
+                                <li>
+                                    <a href="#rulesHistory">History and Rules</a>
+                                </li>
+                                <li>
+                                    <a href="#sectionTableScores">Tables Score</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a id="newGame" href="#menuSetUp">New Game</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
+                <div id="menuLaptop"></div>
+
             </header>
 
 
@@ -65,32 +69,36 @@
 
             <section id="fronter">
 
-                <div id="scoreBoard"></div>
+                <div id="dialogBox"></div>
 
-                <div id="sectionDice">
-                    <ul>
-                        <li class="dice2">
-                            <input id="die1" type="checkbox" class="dice">
-                            <p id="die1Text"></p>
-                        </li>
-                        <li class="dice2">
-                            <input id="die2" type="checkbox" class="dice">
-                            <p id="die2Text"></p>
-                        </li>
-                        <li class="dice2">
-                            <input id="die3" type="checkbox" class="dice">
-                            <p id="die3Text"></p>
-                        </li>
-                        <li class="dice2">
-                            <input id="die4" type="checkbox" class="dice">
-                            <p id="die4Text"></p>
-                        </li>
-                        <li class="dice2">
-                            <input id="die5" type="checkbox" class="dice">
-                            <p id="die5Text"></p>
-                        </li>
-                    </ul>
-                </div>
+            </section>
+
+            <section id="sectionDice">
+
+
+                <ul>
+                    <li class="dice2">
+                        <input id="die1" type="checkbox" class="dice">
+                        <p id="die1Text"></p>
+                    </li>
+                    <li class="dice2">
+                        <input id="die2" type="checkbox" class="dice">
+                        <p id="die2Text"></p>
+                    </li>
+                    <li class="dice2">
+                        <input id="die3" type="checkbox" class="dice">
+                        <p id="die3Text"></p>
+                    </li>
+                    <li class="dice2">
+                        <input id="die4" type="checkbox" class="dice">
+                        <p id="die4Text"></p>
+                    </li>
+                    <li class="dice2">
+                        <input id="die5" type="checkbox" class="dice">
+                        <p id="die5Text"></p>
+                    </li>
+                </ul>
+
             </section>
             <section id="sectionButtons">
                 <div class="text-center">
@@ -100,7 +108,9 @@
             </section>
 
             <section id="sectionTableScores">
+
                 <h2>Score Table</h2>
+
                 <table class="table table-hover table-striped">
                     <thead id="tableScoresHead">
                         <tr id="rhplayerName">
@@ -126,14 +136,16 @@
 
                         </tr>
                     </thead>
-                    <tbody id="tableScoresBody">
 
-                    </tbody>
+                    <tbody id="tableScoresBody"></tbody>
+
                 </table>
             </section>
 
             <section id="menuSetUp">
+
                 <h2>Set Up</h2>
+
                 <div class="roundsInput center-block">
                     <div class="input-group">
                         <span class="input-group-addon " id="basic-addon1">Number of players</span>
@@ -147,6 +159,7 @@
                         </select>
                     </div>
                 </div>
+
                 <div>
                     <div class="roundsInput center-block">
                         <div class="input-group">
@@ -159,31 +172,38 @@
                             </select>
                         </div>
                     </div>
+
                     <div>
                         <div class="roundsInput center-block">
                             <div class="input-group">
                                 <span class="input-group-addon " id="basic-addon1">Winning Score</span>
                                 <select id="menuSetUptargetToWin" class="form-control">
-                                    <option value="1500">1,500 Pieces of Eight</option>
-                                    <option value="2500">2,500 Pieces of Eight</option>
-                                    <option value="5000">5,000 Pieces of Eight</option>
-                                    <option value="10000">10,000 Pieces of Eight</option>
+                                    <option value="1500">1,500 Pieces</option>
+                                    <option value="2500">2,500 Pieces</option>
+                                    <option value="5000">5,000 Pieces</option>
+                                    <option value="10000">10,000 Pieces</option>
                                 </select>
                             </div>
                         </div>
-                        <div>
-                            <div class="text-center">
-                                <button id="saveSetUp" id="btnPlay" type="button" class="btn btn-primary btn-lg">SAVE</button>
-                            </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button id="saveSetUp" id="btnPlay" type="button" class="btn btn-sample btn-primary btn-lg">SAVE</button>
+                    </div>
+
             </section>
 
             <section id="rulesHistory">
+
                 <div>
                     <h2>History and Rules</h2>
                 </div>
+
                 <hr>
+
                 <div>
                     <h5>History</h5>
+
                     <p class="text"> Zloutch used to be a popular game among pirates and sailors during the 16th c. They used to bet alcohol,
                         money - those famous pieces of Eihgt - or even kicks in the butt.</p>
                     <p>The gain/loss repartition is done as following:
@@ -192,13 +212,18 @@
                     <p>This game was a good way to kill the time when drifting on sea while waiting for a Spanish galleon to
                         assail...
                     </p>
+
                 </div>
+
                 <hr>
+
                 <div>
                     <h5>Table of Rules</h5>
+
                     <p class="text">The winner is the first player to gather 10,000 Pieces of Eight (Spanish currency used in the 16th Century
                         by pirates as their reference currency to trade in the Caribbean islands).</p>
                 </div>
+
                 <div>
                     <table class="table" id="tableOfRules">
                         <thead>
@@ -211,6 +236,7 @@
                                 </th>
                             </tr>
                         </thead>
+
                         <tbody>
                             <tr>
                                 <td>
@@ -293,13 +319,16 @@
                             </tr>
                         </tbody>
                     </table>
+
                     <hr>
+
                     <p id="quote">
                         “Why are pirates so cool?
                         <br> Coz they Aaarrrrrr!”
                     </p>
                     <p id="blackBird">Blackbeard</p>
                 </div>
+
             </section>
 
             <footer>
