@@ -20,163 +20,178 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+    <!-- start Mixpanel -->
+    <script type="text/javascript">(function (e, a) {
+            if (!a.__SV) {
+                var b = window; try { var c, l, i, j = b.location, g = j.hash; c = function (a, b) { return (l = a.match(RegExp(b + "=([^&]*)"))) ? l[1] : null }; g && c(g, "state") && (i = JSON.parse(decodeURIComponent(c(g, "state"))), "mpeditor" === i.action && (b.sessionStorage.setItem("_mpcehash", g), history.replaceState(i.desiredHash || "", e.title, j.pathname + j.search))) } catch (m) { } var k, h; window.mixpanel = a; a._i = []; a.init = function (b, c, f) {
+                    function e(b, a) {
+                        var c = a.split("."); 2 == c.length && (b = b[c[0]], a = c[1]); b[a] = function () {
+                            b.push([a].concat(Array.prototype.slice.call(arguments,
+                                0)))
+                        }
+                    } var d = a; "undefined" !== typeof f ? d = a[f] = [] : f = "mixpanel"; d.people = d.people || []; d.toString = function (b) { var a = "mixpanel"; "mixpanel" !== f && (a += "." + f); b || (a += " (stub)"); return a }; d.people.toString = function () { return d.toString(1) + ".people (stub)" }; k = "disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+                    for (h = 0; h < k.length; h++)e(d, k[h]); a._i.push([b, c, f])
+                }; a.__SV = 1.2; b = e.createElement("script"); b.type = "text/javascript"; b.async = !0; b.src = "undefined" !== typeof MIXPANEL_CUSTOM_LIB_URL ? MIXPANEL_CUSTOM_LIB_URL : "file:" === e.location.protocol && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; c = e.getElementsByTagName("script")[0]; c.parentNode.insertBefore(b, c)
+            }
+        })(document, window.mixpanel || []);
+        mixpanel.init("5531dab725db6ee58f3b9cfe5003f457");</script>
+    <!-- end Mixpanel -->
+</head>
 
-    <head>
 
+<body>
 
-        <body>
+    <header>
+        <div>
+            <h1>Zloutch</h1>
 
-            <header>
-                <div>
-                    <h1>Zloutch</h1>
-
-                    <div id="menuMobile">
-                        <div class="btn-group">
-                            <!-- <button type="button" class="btn btn-danger">
+            <div id="menuMobile">
+                <div class="btn-group">
+                    <!-- <button type="button" class="btn btn-danger">
                             <a href="#menuSetUp">Set Up</a>
                         </button> -->
-                            <button id="dropdownToggle" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu my-dropdown-menu">
-                                <li>
-                                    <a href="#sectionDice">Back to dice</a>
-                                </li>
-                                <li>
-                                    <a href="#rulesHistory">History and Rules</a>
-                                </li>
-                                <li>
-                                    <a href="#sectionTableScores">Tables Score</a>
-                                </li>
-                                <li role="separator" class="divider"></li>
-                                <li>
-                                    <a id="newGame" href="#menuSetUp">New Game</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <button id="dropdownToggle" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu my-dropdown-menu">
+                        <li>
+                            <a href="#sectionDice">Back to dice</a>
+                        </li>
+                        <li>
+                            <a href="#rulesHistory">History and Rules</a>
+                        </li>
+                        <li>
+                            <a href="#sectionTableScores">Tables Score</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a id="newGame" href="#menuSetUp">New Game</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="menuLaptop"></div>
+
+    </header>
+
+
+    <h2 id="subTitle">Climb onboard for the Adventure of a Lifetime!</h2>
+    <section id="fronter">
+        <div id="menuSetUp">
+
+            <h2>Set Up</h2>
+
+            <div class="roundsInput center-block">
+                <div class="input-group">
+                    <span class="input-group-addon " id="basic-addon1">Number of players</span>
+                    <select id="menuSetUpPlayers" class="form-control">
+                        <option value="1">1 Player</option>
+                        <option value="2">2 Players</option>
+                        <option value="3">3 Players</option>
+                        <option value="4">4 Players</option>
+                        <option value="5">5 Players</option>
+                        <option value="6">6 Players</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div class="roundsInput center-block">
+                    <div class="input-group">
+                        <span class="input-group-addon " id="basic-addon1">Entrance fee</span>
+                        <select id="menuSetUpminToPlay" class="form-control">
+                            <option value="0">0</option>
+                            <option value="200">200 Pieces of Eight</option>
+                            <option value="500">500 Pieces of Eight</option>
+                            <option value="800">800 Pieces of Eight</option>
+                        </select>
                     </div>
                 </div>
 
-                <div id="menuLaptop"></div>
-
-            </header>
-
-
-            <h2 id="subTitle">Climb onboard for the Adventure of a Lifetime!</h2>
-            <section id="fronter">
-                <div id="menuSetUp">
-
-                    <h2>Set Up</h2>
-
+                <div>
                     <div class="roundsInput center-block">
                         <div class="input-group">
-                            <span class="input-group-addon " id="basic-addon1">Number of players</span>
-                            <select id="menuSetUpPlayers" class="form-control">
-                                <option value="1">1 Player</option>
-                                <option value="2">2 Players</option>
-                                <option value="3">3 Players</option>
-                                <option value="4">4 Players</option>
-                                <option value="5">5 Players</option>
-                                <option value="6">6 Players</option>
+                            <span class="input-group-addon " id="basic-addon1">Winning Score</span>
+                            <select id="menuSetUptargetToWin" class="form-control">
+                                <option value="1500">1,500 Pieces</option>
+                                <option value="2500">2,500 Pieces</option>
+                                <option value="5000">5,000 Pieces</option>
+                                <option value="10000">10,000 Pieces</option>
                             </select>
                         </div>
                     </div>
-
-                    <div>
-                        <div class="roundsInput center-block">
-                            <div class="input-group">
-                                <span class="input-group-addon " id="basic-addon1">Entrance fee</span>
-                                <select id="menuSetUpminToPlay" class="form-control">
-                                    <option value="0">0</option>
-                                    <option value="200">200 Pieces of Eight</option>
-                                    <option value="500">500 Pieces of Eight</option>
-                                    <option value="800">800 Pieces of Eight</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="roundsInput center-block">
-                                <div class="input-group">
-                                    <span class="input-group-addon " id="basic-addon1">Winning Score</span>
-                                    <select id="menuSetUptargetToWin" class="form-control">
-                                        <option value="1500">1,500 Pieces</option>
-                                        <option value="2500">2,500 Pieces</option>
-                                        <option value="5000">5,000 Pieces</option>
-                                        <option value="10000">10,000 Pieces</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="text-center">
-                            <button id="saveSetUp" id="btnPlay" type="button" class="btn btn-sample btn-primary btn-lg">SAVE</button>
-                        </div>
-
-                    </div>
-
-
-
-                    <div id="dialogBox"></div>
-
-            </section>
-
-            <section id="sectionDice">
-
-
-                <ul>
-                    <li class="dice2">
-                        <label>
-                            <input id="die1" type="checkbox" class="dice">
-                            <p id="die1Text"></p>
-                        </label>
-                    </li>
-                    <li class="dice2">
-                        <label>
-                            <input id="die2" type="checkbox" class="dice">
-                            <p id="die2Text"></p>
-                        </label>
-                    </li>
-                    <li class="dice2">
-                        <label>
-                            <input id="die3" type="checkbox" class="dice">
-                            <p id="die3Text"></p>
-                        </label>
-
-                    </li>
-                    <li class="dice2">
-                        <label>
-                            <input id="die4" type="checkbox" class="dice">
-                            <p id="die4Text"></p>
-                        </label>
-                    </li>
-                    <li class="dice2">
-                        <label>
-                            <input id="die5" type="checkbox" class="dice">
-                            <p id="die5Text"></p>
-                        </label>
-                    </li>
-                </ul>
-
-            </section>
-            <section id="sectionButtons">
-                <div class="text-center">
-                    <button id="btnPlay" type="button" class="btn btn-primary btn-lg">Play</button>
-                    <button id="btnCashIn" type="button" class="btn btn-default btn-lg">Cash In</button>
                 </div>
-            </section>
 
-            <section id="sectionTableScores">
+                <div class="text-center">
+                    <button id="saveSetUp" id="btnPlay" type="button" class="btn btn-sample btn-primary btn-lg">SAVE</button>
+                </div>
 
-                <h2>Score Table</h2>
+            </div>
 
-                <table class="table table-hover table-striped">
-                    <thead id="tableScoresHead">
-                        <tr id="rhplayerName">
 
-                            <!-- <th>
+
+            <div id="dialogBox"></div>
+
+    </section>
+
+    <section id="sectionDice">
+
+
+        <ul>
+            <li class="dice2">
+                <label>
+                    <input id="die1" type="checkbox" class="dice">
+                    <p id="die1Text"></p>
+                </label>
+            </li>
+            <li class="dice2">
+                <label>
+                    <input id="die2" type="checkbox" class="dice">
+                    <p id="die2Text"></p>
+                </label>
+            </li>
+            <li class="dice2">
+                <label>
+                    <input id="die3" type="checkbox" class="dice">
+                    <p id="die3Text"></p>
+                </label>
+
+            </li>
+            <li class="dice2">
+                <label>
+                    <input id="die4" type="checkbox" class="dice">
+                    <p id="die4Text"></p>
+                </label>
+            </li>
+            <li class="dice2">
+                <label>
+                    <input id="die5" type="checkbox" class="dice">
+                    <p id="die5Text"></p>
+                </label>
+            </li>
+        </ul>
+
+    </section>
+    <section id="sectionButtons">
+        <div class="text-center">
+            <button id="btnPlay" type="button" class="btn btn-primary btn-lg">Play</button>
+            <button id="btnCashIn" type="button" class="btn btn-default btn-lg">Cash In</button>
+        </div>
+    </section>
+
+    <section id="sectionTableScores">
+
+        <h2>Score Table</h2>
+
+        <table class="table table-hover table-striped">
+            <thead id="tableScoresHead">
+                <tr id="rhplayerName">
+
+                    <!-- <th>
                                 <h6>Blackbeard</h6>
                             </th>
                             <th>
@@ -195,172 +210,171 @@
                                 <h6>Anne Dieu-le-Veut</h6>
                             </th> -->
 
-                        </tr>
-                    </thead>
+                </tr>
+            </thead>
 
-                    <tbody id="tableScoresBody"></tbody>
+            <tbody id="tableScoresBody"></tbody>
 
-                </table>
-            </section>
+        </table>
+    </section>
 
 
-            <section id="rulesHistory">
+    <section id="rulesHistory">
 
-                <div>
-                    <h2>History and Rules</h2>
-                </div>
+        <div>
+            <h2>History and Rules</h2>
+        </div>
 
-                <hr>
+        <hr>
 
-                <div>
-                    <h5>History</h5>
+        <div>
+            <h5>History</h5>
 
-                    <p class="text"> Zloutch used to be a popular game among pirates and sailors during the 16th c. They used to bet alcohol,
-                        money - those famous pieces of Eihgt - or even kicks in the butt.</p>
-                    <p>The gain/loss repartition is done as following:
-                        <br>If you are 6 players: the winner gives 6 shots/kicks and receives none of them, the 2nd gives five
-                        and takes one, the 3rd one give 4 and receives two and so on until the loser who takes 6 shots/kicks.
-                    </p>
-                    <p>This game was a good way to kill the time when drifting on sea while waiting for a Spanish galleon to
-                        assail...
-                    </p>
+            <p class="text"> Zloutch used to be a popular game among pirates and sailors during the 16th c. They used to bet alcohol, money
+                - those famous pieces of Eihgt - or even kicks in the butt.</p>
+            <p>The gain/loss repartition is done as following:
+                <br>If you are 6 players: the winner gives 6 shots/kicks and receives none of them, the 2nd gives five and takes
+                one, the 3rd one give 4 and receives two and so on until the loser who takes 6 shots/kicks.
+            </p>
+            <p>This game was a good way to kill the time when drifting on sea while waiting for a Spanish galleon to assail...
+            </p>
 
-                </div>
+        </div>
 
-                <hr>
+        <hr>
 
-                <div>
-                    <h5>Table of Rules</h5>
+        <div>
+            <h5>Table of Rules</h5>
 
-                    <p class="text">The winner is the first player to gather 10,000 Pieces of Eight (Spanish currency used in the 16th Century
-                        by pirates as their reference currency to trade in the Caribbean islands).</p>
-                </div>
+            <p class="text">The winner is the first player to gather 10,000 Pieces of Eight (Spanish currency used in the 16th Century by
+                pirates as their reference currency to trade in the Caribbean islands).</p>
+        </div>
 
-                <div>
-                    <table class="table" id="tableOfRules">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <h6>COMBINATIONS</h6>
-                                </th>
-                                <th>
-                                    <h6>POINTS</h6>
-                                </th>
-                            </tr>
-                        </thead>
+        <div>
+            <table class="table" id="tableOfRules">
+                <thead>
+                    <tr>
+                        <th>
+                            <h6>COMBINATIONS</h6>
+                        </th>
+                        <th>
+                            <h6>POINTS</h6>
+                        </th>
+                    </tr>
+                </thead>
 
-                        <tbody>
-                            <tr>
-                                <td>
-                                    Entrance Fees
-                                </td>
-                                <td>
-                                    Must do a minimu of ...
-                                    <br>Pieces of Eight
-                                    <br>to join the adventure
-                                </td>
-                            </tr>
+                <tbody>
+                    <tr>
+                        <td>
+                            Entrance Fees
+                        </td>
+                        <td>
+                            Must do a minimu of ...
+                            <br>Pieces of Eight
+                            <br>to join the adventure
+                        </td>
+                    </tr>
 
-                            <tr>
-                                <td>
-                                    Single 1
-                                </td>
-                                <td>
-                                    100 Pieces of Eight
-                                </td>
-                            </tr>
+                    <tr>
+                        <td>
+                            Single 1
+                        </td>
+                        <td>
+                            100 Pieces of Eight
+                        </td>
+                    </tr>
 
-                            <tr>
-                                <td>
-                                    Single 5
-                                </td>
-                                <td>
-                                    50 Pieces of Eight
-                                </td>
-                            </tr>
+                    <tr>
+                        <td>
+                            Single 5
+                        </td>
+                        <td>
+                            50 Pieces of Eight
+                        </td>
+                    </tr>
 
-                            <tr>
-                                <td>
-                                    Three of a kind
-                                    <br>(Brelan)
-                                </td>
-                                <td>
-                                    100 x Die value
-                                </td>
-                            </tr>
+                    <tr>
+                        <td>
+                            Three of a kind
+                            <br>(Brelan)
+                        </td>
+                        <td>
+                            100 x Die value
+                        </td>
+                    </tr>
 
-                            <tr>
-                                <td>
-                                    Three of a kind
-                                    <br>and a double
-                                    <br>(Full)
-                                </td>
-                                <td>
-                                    100 x three of a kind die value
-                                    <br>+ 50 x double die value
-                                </td>
-                            </tr>
+                    <tr>
+                        <td>
+                            Three of a kind
+                            <br>and a double
+                            <br>(Full)
+                        </td>
+                        <td>
+                            100 x three of a kind die value
+                            <br>+ 50 x double die value
+                        </td>
+                    </tr>
 
-                            <tr>
-                                <td>
-                                    Four of a kind
-                                    <br>(Carré)
-                                </td>
-                                <td>
-                                    2 x value of Brelan
-                                </td>
-                            </tr>
+                    <tr>
+                        <td>
+                            Four of a kind
+                            <br>(Carré)
+                        </td>
+                        <td>
+                            2 x value of Brelan
+                        </td>
+                    </tr>
 
-                            <tr>
-                                <td>
-                                    Five of a kind
-                                    <br>(Yam)
-                                </td>
-                                <td>
-                                    4 x value of Brelan
-                                </td>
-                            </tr>
+                    <tr>
+                        <td>
+                            Five of a kind
+                            <br>(Yam)
+                        </td>
+                        <td>
+                            4 x value of Brelan
+                        </td>
+                    </tr>
 
-                            <tr>
-                                <td>
-                                    Sequence
-                                </td>
-                                <td>
-                                    1500 Pieces of Eight
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p>
-                        <a href="https://en.wikipedia.org/wiki/Dice_10000">For more information about the rules</a>
-                    </p>
-                    <hr>
+                    <tr>
+                        <td>
+                            Sequence
+                        </td>
+                        <td>
+                            1500 Pieces of Eight
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                <a href="https://en.wikipedia.org/wiki/Dice_10000">For more information about the rules</a>
+            </p>
+            <hr>
 
-                    <p id="quote">
-                        “Why are pirates so cool?
-                        <br> Coz they Aaarrrrrr!”
-                    </p>
-                    <p id="blackBird">Blackbeard</p>
-                </div>
+            <p id="quote">
+                “Why are pirates so cool?
+                <br> Coz they Aaarrrrrr!”
+            </p>
+            <p id="blackBird">Blackbeard</p>
+        </div>
 
-            </section>
+    </section>
 
-            <footer>
-                <h5>Made by Arthur Mossa</h5>
-                <ul>
-                    <li>
-                        <a href="https://github.com/Qodibop">Github</a>
-                    </li>
-                    <li>
-                        <a href="https://linkedin.com/in/arthurmossa">LinkedIn</a>
-                    </li>
-                </ul>
-                <p>Brought to you by q0dIb0p</p>
-            </footer>
+    <footer>
+        <h5>Made by Arthur Mossa</h5>
+        <ul>
+            <li>
+                <a href="https://github.com/Qodibop">Github</a>
+            </li>
+            <li>
+                <a href="https://linkedin.com/in/arthurmossa">LinkedIn</a>
+            </li>
+        </ul>
+        <p>Brought to you by q0dIb0p</p>
+    </footer>
 
-            <script src="Javascript/logic_zloutch v2.js"></script>
-            <script src="Javascript/main.js"></script>
+    <script src="Javascript/logic_zloutch v2.js"></script>
+    <script src="Javascript/main.js"></script>
 
-        </body>
+</body>
 
 </html>
