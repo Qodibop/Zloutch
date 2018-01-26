@@ -1,13 +1,26 @@
-var game = new Game(0, 2000, [
-  "Player 1",
-  "Player 2",
-  "Player 3",
-  "Player 4",
-  "Player 5",
-  "Player 6"
+var minToPlayGame = 0;
+var targetToWinGame = 0;
+
+var setUp = function() {
+  numberOfPlayers = parseInt($("#menuSetUpPlayers").val());
+  minToPlayGame = parseInt($("#menuSetUpminToPlay").val());
+  targetToWinGame = parseInt($("#menuSetUptargetToWin").val());
+};
+
+var game = new Game(minToPlayGame, 10000, [
+  "Balckbeard",
+  "Jack Sparrow",
+  "Barbarossa",
+  "Lady Mary Killigrew",
+  "Jacquotte Delahaye",
+  "Anne Dieu-le-Veut"
 ]);
 
 $(document).ready(function() {
+  $("#saveSetUp").click(function() {
+    setUp();
+  });
+
   $("#btnPlay").click(function() {
     game.play();
   });
@@ -18,7 +31,7 @@ $(document).ready(function() {
 });
 
 Player.prototype.updateTableScores = function() {
-  if (this.name === "Player 1") {
+  if (this.name === "Balckbeard") {
     this.creatTr();
   }
   var scoreToPut = this.finalScore;

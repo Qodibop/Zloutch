@@ -139,7 +139,6 @@ body {
 
   #sectionTableScores {
     width: 100%;
-    height: 40rem;
     margin: 1rem 0;
   }
 
@@ -154,6 +153,16 @@ body {
     font-weight: bold;
     text-align: center;
   }
+
+  /* --- SECTION SET UP PARAMETERS --- */
+
+  #menuSetUp {
+    margin: 2rem;
+    padding: 1rem;
+    background-color: beige;
+    border-radius: 6px;
+  }
+
   /* --- SECTION RULES & HISTORY --- */
   #rulesHistory {
     max-width: 100%;
@@ -385,7 +394,6 @@ body {
 
   #sectionTableScores {
     width: 100%;
-    height: 40rem;
     margin: 2rem 0;
   }
 
@@ -649,7 +657,6 @@ body {
 
   #sectionTableScores {
     width: 100%;
-    height: 40rem;
     margin: 1rem 0;
   }
 
@@ -665,6 +672,15 @@ body {
     font-weight: bold;
     text-align: center;
   }
+
+  /* --- SECTION SET UP PARAMETERS --- */
+
+  #menuSetUp {
+    margin: 2rem;
+    padding: 2rem;
+    background-color: beige;
+  }
+
   /* --- SECTION RULES & HISTORY --- */
   #rulesHistory {
     max-width: 100%;

@@ -2,9 +2,9 @@
 
 // --- Constructor to build a game ---
 
-var Game = function(minToPlay, targetToWin, playersNames) {
-  this.minToPlay = minToPlay;
-  this.targetToWin = targetToWin;
+var Game = function() {
+  this.minToPlay = 0;
+  this.targetToWin = 0;
   this.currentTurn = 0;
   this.playersNames = [
     "Balckbeard",
@@ -14,10 +14,11 @@ var Game = function(minToPlay, targetToWin, playersNames) {
     "Jacquotte Delahaye",
     "Anne Dieu-le-Veut"
   ];
+  this.numberOfPlayers = 0;
 
   this.players = [];
-  for (var i = 0; i < playersNames.length; i++) {
-    this.players.push(new Player(playersNames[i], this.minToPlay));
+  for (var i = 0; i < this.numberOfPlayers; i++) {
+    this.players.push(new Player(this.playersNames[i], this.minToPlay));
   }
 };
 
@@ -29,21 +30,34 @@ function checkDice(dice) {
   }
 }
 
-Game.prototype.play = function() {
-  this.players[this.currentTurn].play();
-};
-
 Game.prototype.cashIn = function() {
-  var winer = this.players[this.currentTurn];
   this.players[this.currentTurn].cashIn();
+  var winner = this.players[this.currentTurn];
   if (this.players[this.currentTurn].finalScore >= this.targetToWin) {
     $("#scoreBoard").text(
-      winer +
+      winner +
         " won the jackpot and becomes the Master of the Caribbean! AAäääa@aâ@âr VICTORY!!!"
     );
   }
   if (this.currentTurn === this.players.length - 1) this.currentTurn = 0;
   else this.currentTurn++;
+};
+
+Game.prototype.setUp = function() {
+  this.numberOfPlayers = parseInt($("#menuSetUpPlayers").val());
+  this.minToPlay = parseInt($("#menuSetUpminToPlay").val());
+  this.targetToWin = parseInt($("#menuSetUptargetToWin ").val());
+};
+
+Game.prototype.play = function() {
+  this.players[this.currentTurn].play();
+};
+
+Game.prototype.makeHeaderTableScores = function() {
+  for (var i = 0; i < this.numberOfPlayers; i++) {
+    var playerToPut = this.playersNames[i];
+    $("#rhplayerName").append("<th><h6>" + playerToPut + "</h6></th>");
+  }
 };
 
 // --- Constructor to build a player ---
@@ -287,4 +301,18 @@ Player.prototype.cashIn = function() {
   this.updateTableScores();
   this.sumScoresPerRound = 0;
   $("#scoreBoard").text("");
+};
+
+Player.prototype.updateTableScores = function() {
+  if (this.name === "Balckbeard") {
+    this.creatTr();
+  }
+  var scoreToPut = this.finalScore;
+  var rowSelector = "#r" + this.round;
+  $(rowSelector).append("<td>" + scoreToPut + "</td>");
+};
+
+Player.prototype.creatTr = function() {
+  var idTr = "<tr id=r" + this.round + "></tr>";
+  $("#tableScoresBody").append(idTr);
 };
