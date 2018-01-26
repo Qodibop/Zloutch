@@ -29,6 +29,12 @@ function checkDice(dice) {
   }
 }
 
+Game.prototype.setUp = function() {
+  this.numberOfPlayers = parseInt($("#menuSetUpPlayers").val());
+  this.minToPlay = parseInt($("#menuSetUpminToPlay").val());
+  this.targetToWin = parseInt($("#menuSetUptargetToWin").val());
+}; //listener ne marchent pas...
+
 Game.prototype.play = function() {
   this.players[this.currentTurn].play();
 };
@@ -110,7 +116,7 @@ Player.prototype.validateDice = function() {
       $("#scoreBoard").text(
         "You haven't paid " +
           this.minToPlay +
-          " Pieces of Height as piracy fees to join the adventure! Cash In and Pass your turn."
+          " Pieces of Eight as piracy fees to join the adventure! Cash In and Pass your turn."
       );
     }
   } else {
@@ -247,10 +253,10 @@ Player.prototype.updateBoard = function() {
   var points = this.sumScoresPerRound;
   if (this.throwScore === 0) {
     $("#scoreBoard").text(
-      "AAäääaaaââr!You didn't steal any Pieces of Height! Shame on you!!    You lose your gain: Cash In and PASS YOUR TURN"
+      "AAäääaaaââr!You didn't steal any Pieces of Eight! Shame on you!!    You lose your gain: Cash In and PASS YOUR TURN"
     );
   } else {
-    $("#scoreBoard").text("Score: " + points + " Piece of Height");
+    $("#scoreBoard").text("Score: " + points + " Pieces of Eight");
   }
 };
 
@@ -272,7 +278,7 @@ Player.prototype.play = function() {
 Player.prototype.sumScoreRound = function() {
   if (this.throwScore === 0) {
     // $("#scoreBoard").text(
-    //   "AAäääaaaââr!You didn't steal any Pieces of Height! Shame on you!!    You lose your gain: Cash In and PASS YOUR TURN"
+    //   "AAäääaaaââr!You didn't steal any Pieces of Eight! Shame on you!!    You lose your gain: Cash In and PASS YOUR TURN"
     // );
     this.sumScoresPerRound = 0;
   } else {

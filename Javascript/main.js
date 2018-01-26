@@ -1,14 +1,8 @@
-var setUp = function() {
-  numberOfPlayers = parseInt($("#menuSetUpPlayers").val());
-  minToPlayGame = parseInt($("#menuSetUpminToPlay").val());
-  targetToWinGame = $("#menuSetUptargetToWin").val();
-}; //listener ne marchent pas...
-
 var game = new Game();
 
 $(document).ready(function() {
   $("#saveSetUp").click(function() {
-    setUp();
+    game.setUp();
   });
 
   $("#btnPlay").click(function() {
