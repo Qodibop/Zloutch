@@ -8,11 +8,11 @@ var Game = function() {
   this.currentTurn = 0;
   this.playersNames = [
     "Balckbeard",
-    "Jack Sparrow",
-    "Barbarossa",
-    "Lady Mary Killigrew",
     "Jacquotte Delahaye",
-    "Anne Dieu-le-Veut"
+    "Charles Vane",
+    "Ching Shih",
+    "Barbarossa",
+    "Grace O'Malley"
   ];
   this.numberOfPlayers = 0;
   this.players = [];
@@ -49,7 +49,7 @@ Game.prototype.cashIn = function() {
   if (this.players[this.currentTurn].finalScore >= this.targetToWin) {
     $("#scoreBoard").text(
       this.players[this.currentTurn].name +
-        " won the jackpot and becomes the Master of the Caribbean! AAäääa@aâ@âr VICTORY!!!"
+        " won the jackpot and becomes the Master of the 7 Seas! Aäääaar VICTORY!!!"
     );
   }
   if (this.currentTurn === this.players.length - 1) this.currentTurn = 0;
