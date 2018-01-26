@@ -65,11 +65,61 @@
 
 
             <h2 id="subTitle">Climb onboard for the Adventure of a Lifetime!</h2>
-
-
             <section id="fronter">
+                <div id="menuSetUp">
 
-                <div id="dialogBox"></div>
+                    <h2>Set Up</h2>
+
+                    <div class="roundsInput center-block">
+                        <div class="input-group">
+                            <span class="input-group-addon " id="basic-addon1">Number of players</span>
+                            <select id="menuSetUpPlayers" class="form-control">
+                                <option value="1">1 Player</option>
+                                <option value="2">2 Players</option>
+                                <option value="3">3 Players</option>
+                                <option value="4">4 Players</option>
+                                <option value="5">5 Players</option>
+                                <option value="6">6 Players</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="roundsInput center-block">
+                            <div class="input-group">
+                                <span class="input-group-addon " id="basic-addon1">Entrance fee</span>
+                                <select id="menuSetUpminToPlay" class="form-control">
+                                    <option value="0">0</option>
+                                    <option value="200">200 Pieces of Eight</option>
+                                    <option value="500">500 Pieces of Eight</option>
+                                    <option value="800">800 Pieces of Eight</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="roundsInput center-block">
+                                <div class="input-group">
+                                    <span class="input-group-addon " id="basic-addon1">Winning Score</span>
+                                    <select id="menuSetUptargetToWin" class="form-control">
+                                        <option value="1500">1,500 Pieces</option>
+                                        <option value="2500">2,500 Pieces</option>
+                                        <option value="5000">5,000 Pieces</option>
+                                        <option value="10000">10,000 Pieces</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button id="saveSetUp" id="btnPlay" type="button" class="btn btn-sample btn-primary btn-lg">SAVE</button>
+                        </div>
+
+                    </div>
+
+
+
+                    <div id="dialogBox"></div>
 
             </section>
 
@@ -78,24 +128,35 @@
 
                 <ul>
                     <li class="dice2">
-                        <input id="die1" type="checkbox" class="dice">
-                        <p id="die1Text"></p>
+                        <label>
+                            <input id="die1" type="checkbox" class="dice">
+                            <p id="die1Text"></p>
+                        </label>
                     </li>
                     <li class="dice2">
-                        <input id="die2" type="checkbox" class="dice">
-                        <p id="die2Text"></p>
+                        <label>
+                            <input id="die2" type="checkbox" class="dice">
+                            <p id="die2Text"></p>
+                        </label>
                     </li>
                     <li class="dice2">
-                        <input id="die3" type="checkbox" class="dice">
-                        <p id="die3Text"></p>
+                        <label>
+                            <input id="die3" type="checkbox" class="dice">
+                            <p id="die3Text"></p>
+                        </label>
+
                     </li>
                     <li class="dice2">
-                        <input id="die4" type="checkbox" class="dice">
-                        <p id="die4Text"></p>
+                        <label>
+                            <input id="die4" type="checkbox" class="dice">
+                            <p id="die4Text"></p>
+                        </label>
                     </li>
                     <li class="dice2">
-                        <input id="die5" type="checkbox" class="dice">
-                        <p id="die5Text"></p>
+                        <label>
+                            <input id="die5" type="checkbox" class="dice">
+                            <p id="die5Text"></p>
+                        </label>
                     </li>
                 </ul>
 
@@ -142,56 +203,6 @@
                 </table>
             </section>
 
-            <section id="menuSetUp">
-
-                <h2>Set Up</h2>
-
-                <div class="roundsInput center-block">
-                    <div class="input-group">
-                        <span class="input-group-addon " id="basic-addon1">Number of players</span>
-                        <select id="menuSetUpPlayers" class="form-control">
-                            <option value="1">1 Player</option>
-                            <option value="2">2 Players</option>
-                            <option value="3">3 Players</option>
-                            <option value="4">4 Players</option>
-                            <option value="5">5 Players</option>
-                            <option value="6">6 Players</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="roundsInput center-block">
-                        <div class="input-group">
-                            <span class="input-group-addon " id="basic-addon1">Entrance fee</span>
-                            <select id="menuSetUpminToPlay" class="form-control">
-                                <option value="0">0</option>
-                                <option value="200">200 Pieces of Eight</option>
-                                <option value="500">500 Pieces of Eight</option>
-                                <option value="800">800 Pieces of Eight</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="roundsInput center-block">
-                            <div class="input-group">
-                                <span class="input-group-addon " id="basic-addon1">Winning Score</span>
-                                <select id="menuSetUptargetToWin" class="form-control">
-                                    <option value="1500">1,500 Pieces</option>
-                                    <option value="2500">2,500 Pieces</option>
-                                    <option value="5000">5,000 Pieces</option>
-                                    <option value="10000">10,000 Pieces</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-center">
-                        <button id="saveSetUp" id="btnPlay" type="button" class="btn btn-sample btn-primary btn-lg">SAVE</button>
-                    </div>
-
-            </section>
 
             <section id="rulesHistory">
 
@@ -208,7 +219,8 @@
                         money - those famous pieces of Eihgt - or even kicks in the butt.</p>
                     <p>The gain/loss repartition is done as following:
                         <br>If you are 6 players: the winner gives 6 shots/kicks and receives none of them, the 2nd gives five
-                        and takes one, the 3rd one give 4 and receives two and so on until the loser who takes 6 shots/kicks.</p>
+                        and takes one, the 3rd one give 4 and receives two and so on until the loser who takes 6 shots/kicks.
+                    </p>
                     <p>This game was a good way to kill the time when drifting on sea while waiting for a Spanish galleon to
                         assail...
                     </p>

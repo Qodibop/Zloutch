@@ -66,7 +66,7 @@ body {
       Arial, sans-serif;
     text-align: center;
     font-size: 2rem;
-    height: 5rem;
+    min-height: 5rem;
     max-width: 100%;
     margin: 1rem;
   }
@@ -83,13 +83,15 @@ body {
     padding: 1rem;
     max-width: 100%;
     min-height: 20rem;
-    background: url("images/Gold_pirates_skull.png") no-repeat center;
+    background: url("images/Gold_pirates_skull.png") no-repeat bottom;
     background-size: 60%;
   }
+
   #dialogBox {
     max-width: 100%;
-    border: 2px solid orange;
-    margin: 0 19% 70%;
+    /* border: 2px solid orange; */
+    border-radius: 14% 15px 30% 25px;
+    margin: 60% 0 0;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
@@ -101,6 +103,27 @@ body {
   h2 {
     text-align: center;
     size: 2rem;
+  }
+
+  /* --- SECTION SET UP PARAMETERS --- */
+
+  #menuSetUp {
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 6px;
+    /* border: 2px solid orange; */
+  }
+
+  #menuSetUp h2 {
+    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
+      Arial, sans-serif;
+    text-align: center;
+    color: orange;
+  }
+  #saveSetUp.btn-sample {
+    color: #ffffff;
+    background-color: orange;
+    border-color: orange;
   }
 
   /* --- SECTION OF THE DICE --- */
@@ -175,28 +198,6 @@ body {
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
-  }
-
-  /* --- SECTION SET UP PARAMETERS --- */
-
-  #menuSetUp {
-    margin: 2rem;
-    padding: 1rem;
-    background-color: white;
-    border-radius: 6px;
-    border: 2px solid orange;
-  }
-
-  #menuSetUp h2 {
-    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
-      Arial, sans-serif;
-    text-align: center;
-    color: orange;
-  }
-  #saveSetUp.btn-sample {
-    color: #ffffff;
-    background-color: orange;
-    border-color: orange;
   }
 
   /* --- SECTION RULES & HISTORY --- */
@@ -347,7 +348,7 @@ body {
       Arial, sans-serif;
     text-align: center;
     font-size: 5rem;
-    height: 5rem;
+    min-height: 5rem;
     max-width: 100%;
     margin: 1rem;
   }
@@ -364,14 +365,15 @@ body {
     padding: 1rem;
     max-width: 100%;
     min-height: 40rem;
-    background: url("images/Gold_pirates_skull.png") no-repeat center;
+    background: url("images/Gold_pirates_skull.png") no-repeat bottom;
     background-size: 50%;
   }
 
   #dialogBox {
     max-width: 100%;
-    border: 2px solid orange;
-    margin: 0 30% 45%;
+    /* border: 2px solid orange; */
+    border-radius: 14% 15px 30% 25px;
+    margin: 60% 19% 0;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
@@ -379,6 +381,35 @@ body {
     background-color: rgba(255, 165, 0, 0.8);
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
+  /* --- SECTION SET UP PARAMETERS --- */
+
+  #menuSetUp {
+    margin: 2rem;
+    padding: 4rem 10rem;
+    border-radius: 6px;
+    /* border: 2px solid orange; */
+  }
+
+  #menuSetUp h2 {
+    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
+      Arial, sans-serif;
+    text-align: center;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    color: orange;
+  }
+
+  #saveSetUp.btn-sample {
+    color: #ffffff;
+    background-color: orange;
+    border-color: orange;
+    padding: 1rem;
+    width: 30%;
+    height: 20%;
+    font-size: 4rem;
+  }
+
   /* --- SECTION OF THE DICE --- */
   #sectionDice {
     width: 100%;
@@ -464,35 +495,6 @@ body {
     font-size: 3rem;
     font-weight: bold;
     text-align: center;
-  }
-  /* --- SECTION SET UP PARAMETERS --- */
-
-  #menuSetUp {
-    margin: 2rem;
-    padding: 4rem 10rem;
-    background-color: white;
-    border-radius: 6px;
-    border: 2px solid orange;
-  }
-
-  #menuSetUp h2 {
-    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
-      Arial, sans-serif;
-    text-align: center;
-    font-size: 5rem;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
-    color: orange;
-  }
-
-  #saveSetUp.btn-sample {
-    color: #ffffff;
-    background-color: orange;
-    border-color: orange;
-    padding: 1rem;
-    width: 30%;
-    height: 20%;
-    font-size: 4rem;
   }
 
   /* --- SECTION RULES & HISTORY --- */
@@ -677,17 +679,17 @@ body {
     align-content: center;
     padding: 1rem;
     max-width: 100%;
-    min-height: 60rem;
+    min-height: 30rem;
     background: url("images/Gold_pirates_skull.png") no-repeat left;
     background-size: 40%;
-    margin: 1rem 0;
+    margin: 2rem 2rem 0;
   }
 
   #dialogBox {
-    width: 50%;
-    border: 2px solid orange;
+    width: 70%;
+    /* border: 2px solid orange; */
     border-radius: 14% 15px 30% 25px;
-    margin: 24% 0 0% 43%;
+    margin: 30% 0 0% 0%;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
@@ -699,6 +701,37 @@ body {
   h2 {
     text-align: center;
     size: 2rem;
+  }
+  /* --- SECTION SET UP PARAMETERS --- */
+
+  #menuSetUp {
+    margin: 7% 3rem 6% 46%;
+    padding: 4rem 10rem;
+    border-right: 6px solid orange;
+    background-color: white;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  #menuSetUp h2 {
+    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
+      Arial, sans-serif;
+    text-align: center;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    color: orange;
+    padding: 0 0 3rem;
+  }
+
+  #saveSetUp.btn-sample {
+    color: #ffffff;
+    background-color: orange;
+    border-color: orange;
+    padding: 1rem;
+    width: 30%;
+    height: 20%;
+    font-size: 4rem;
   }
 
   /* --- SECTION OF THE DICE --- */
@@ -786,37 +819,6 @@ body {
     text-align: center;
   }
 
-  /* --- SECTION SET UP PARAMETERS --- */
-
-  #menuSetUp {
-    margin: 3rem;
-    padding: 4rem 10rem;
-    border: 6px solid orange;
-    background-color: white;
-    border-radius: 6px;
-    text-align: center;
-  }
-
-  #menuSetUp h2 {
-    font-family: "Supermercado One", "Franklin Gothic Medium", "Arial Narrow",
-      Arial, sans-serif;
-    text-align: center;
-    font-size: 5rem;
-    margin-bottom: 2rem;
-    margin-top: 0;
-    color: orange;
-    padding: 0 0 3rem;
-  }
-
-  #saveSetUp.btn-sample {
-    color: #ffffff;
-    background-color: orange;
-    border-color: orange;
-    padding: 1rem;
-    width: 30%;
-    height: 20%;
-    font-size: 4rem;
-  }
   /* --- SECTION RULES & HISTORY --- */
   #rulesHistory {
     max-width: 100%;
