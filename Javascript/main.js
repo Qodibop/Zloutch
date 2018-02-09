@@ -1,10 +1,14 @@
 var game = new Game();
 
 $(document).ready(function() {
+  $("#saveSetUp").toggleClass("orange");
   $("#newGame").click(function() {
     location.reload();
   });
-  $("#saveSetUp").click(function() {
+
+  $("#saveSetUp").click(() => {
+    $("#saveSetUp").toggleClass("green");
+    $(".dice").prop("checked", true);
     game.setUp();
   });
 
@@ -14,6 +18,7 @@ $(document).ready(function() {
 
   $("#btnCashIn").click(function() {
     game.cashIn();
+    $(".dice").prop("checked", true);
   });
 });
 
