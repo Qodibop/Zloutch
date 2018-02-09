@@ -1,7 +1,6 @@
 var game = new Game();
 
 $(document).ready(function() {
-  $("#saveSetUp").toggleClass("orange");
   $("#newGame").click(function() {
     location.reload();
   });
